@@ -1,0 +1,27 @@
+msgid "IDS_WMGR_MBODY_CLOCK_FONT_COLOUR"
+msgstr "ക്ലോക്ക് ഫോണ്ട് നിറം"
+
+msgid "IDS_CLOCK_MBODY_CLOCK_FONT"
+msgstr "ക്ലോക്ക് ഫോണ്ട്"
+
+msgid "IDS_WMGR_MBODY_SHOW_BATTERY_ICON"
+msgstr "ബാറ്ററി ഐക്കൺ കാണിക്കുക"
+
+msgid "IDS_WMGR_MBODY_SHOW_BLUETOOTH_ICON"
+msgstr "ബ്ലൂടൂത്ത് ഐക്കൺ കാണിക്കുക"
+
+msgid "IDS_WMGR_OPT_DEFAULT_M_FONT"
+msgstr "ഡിഫോൾട്ട്"
+
+msgid "IDS_WMGR_OPT_DYNAMIC_M_FONT"
+msgstr "ഡൈനാമിക്ക്"
+
+msgid "IDS_WMGR_OPT_LIGHT_M_FONT"
+msgstr "ലഘുവായത്"
+
+msgid "IDS_WMGR_HEADER_DIGITAL_CLOCK"
+msgstr "ഡിജിറ്റല്‍ ക്ലോക്ക്"
+
+msgid "IDS_WMGR_MBODY_SHOW_DATE"
+msgstr "തീയതി കാണിക്കുക"
+

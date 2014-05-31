@@ -1,0 +1,26 @@
+<manifest>
+    <define>
+        <domain name="org.tizen.idle-clock-digital"/>
+	<request>
+		<smack request="org.tizen.setting" type="rwx"/>
+		<smack request="org.tizen.setting::default-resources" type="rx"/>
+		<smack request="org.tizen.add-viewer" type="rx"/>
+		<smack request="org.tizen.message" type="rw"/>
+		<smack request="org.tizen.setting::system" type="rl"/>
+	</request>
+	<permit>
+		<smack permit="aul" type="rx"/>
+		<smack permit="dbus" type="rwx"/>
+		<smack permit="system" type="w"/>
+	</permit>
+    </define>
+    <assign>
+	<filesystem path="/usr/apps/org.tizen.idle-clock-digital/shared/res/icons/default/small/org.tizen.idle-clock-digital.png" label="_" />
+	<filesystem path="/usr/apps/org.tizen.idle-clock-digital/res/locale/*" label="_" />
+	<filesystem path="/usr/share/locale/*" label="_" />
+	<filesystem path="/usr/apps/org.tizen.idle-clock-digital/bin/idle-clock-digital" exec_label="org.tizen.idle-clock-digital" />
+    </assign>
+    <request>
+        <domain name="org.tizen.idle-clock-digital"/>
+    </request>
+</manifest>

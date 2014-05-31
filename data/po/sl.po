@@ -1,0 +1,27 @@
+msgid "IDS_WMGR_MBODY_CLOCK_FONT_COLOUR"
+msgstr "Barva pisave ure"
+
+msgid "IDS_CLOCK_MBODY_CLOCK_FONT"
+msgstr "Pisava ure"
+
+msgid "IDS_WMGR_MBODY_SHOW_BATTERY_ICON"
+msgstr "Prikaz ikone baterije"
+
+msgid "IDS_WMGR_MBODY_SHOW_BLUETOOTH_ICON"
+msgstr "Prikaz ikone Bluetooth"
+
+msgid "IDS_WMGR_OPT_DEFAULT_M_FONT"
+msgstr "Privzeta"
+
+msgid "IDS_WMGR_OPT_DYNAMIC_M_FONT"
+msgstr "Dinamična"
+
+msgid "IDS_WMGR_OPT_LIGHT_M_FONT"
+msgstr "Lahka"
+
+msgid "IDS_WMGR_HEADER_DIGITAL_CLOCK"
+msgstr "Digitalna ura"
+
+msgid "IDS_WMGR_MBODY_SHOW_DATE"
+msgstr "Pokaži datum"
+

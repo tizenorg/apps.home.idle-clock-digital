@@ -1,0 +1,27 @@
+msgid "IDS_WMGR_MBODY_CLOCK_FONT_COLOUR"
+msgstr "နာရီ ေဖာင့္ အေရာင္"
+
+msgid "IDS_CLOCK_MBODY_CLOCK_FONT"
+msgstr "နာရီ၏ ေဖာင့္"
+
+msgid "IDS_WMGR_MBODY_SHOW_BATTERY_ICON"
+msgstr "ဘက္ထရီ သေကၤတ ျပပါ"
+
+msgid "IDS_WMGR_MBODY_SHOW_BLUETOOTH_ICON"
+msgstr "ဘလူးတုသ္ သေကၤတ ျပပါ"
+
+msgid "IDS_WMGR_OPT_DEFAULT_M_FONT"
+msgstr "မူလသတ္မွတ္ထားေသာ"
+
+msgid "IDS_WMGR_OPT_DYNAMIC_M_FONT"
+msgstr "ဒိုင္းနမစ္"
+
+msgid "IDS_WMGR_OPT_LIGHT_M_FONT"
+msgstr "အလင္း"
+
+msgid "IDS_WMGR_HEADER_DIGITAL_CLOCK"
+msgstr "ဒီဂ်စ္တယ္ နာရီ"
+
+msgid "IDS_WMGR_MBODY_SHOW_DATE"
+msgstr "ရက္စြဲ ျပပါ"
+

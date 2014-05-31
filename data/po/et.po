@@ -1,0 +1,27 @@
+msgid "IDS_WMGR_MBODY_CLOCK_FONT_COLOUR"
+msgstr "Kella fondivärv"
+
+msgid "IDS_CLOCK_MBODY_CLOCK_FONT"
+msgstr "Kella font"
+
+msgid "IDS_WMGR_MBODY_SHOW_BATTERY_ICON"
+msgstr "Näita akuikooni"
+
+msgid "IDS_WMGR_MBODY_SHOW_BLUETOOTH_ICON"
+msgstr "Näita Bluetoothi ikooni"
+
+msgid "IDS_WMGR_OPT_DEFAULT_M_FONT"
+msgstr "Vaikimisi"
+
+msgid "IDS_WMGR_OPT_DYNAMIC_M_FONT"
+msgstr "Dünaamiline"
+
+msgid "IDS_WMGR_OPT_LIGHT_M_FONT"
+msgstr "Kerge"
+
+msgid "IDS_WMGR_HEADER_DIGITAL_CLOCK"
+msgstr "Digitaalkell"
+
+msgid "IDS_WMGR_MBODY_SHOW_DATE"
+msgstr "Näita kuupäeva"
+

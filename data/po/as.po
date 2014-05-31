@@ -1,0 +1,27 @@
+msgid "IDS_WMGR_MBODY_CLOCK_FONT_COLOUR"
+msgstr "ক্ল'ক সন্মুখ ৰং"
+
+msgid "IDS_CLOCK_MBODY_CLOCK_FONT"
+msgstr "ক্ল'ক ফ'ণ্ট"
+
+msgid "IDS_WMGR_MBODY_SHOW_BATTERY_ICON"
+msgstr "বেটাৰীৰ চিহ্ন দেখুৱাওক"
+
+msgid "IDS_WMGR_MBODY_SHOW_BLUETOOTH_ICON"
+msgstr "ব্লুটুথ চিহ্ন দেখুৱাওক"
+
+msgid "IDS_WMGR_OPT_DEFAULT_M_FONT"
+msgstr "ডিফ'ল্ট"
+
+msgid "IDS_WMGR_OPT_DYNAMIC_M_FONT"
+msgstr "ডায়েনেমিক"
+
+msgid "IDS_WMGR_OPT_LIGHT_M_FONT"
+msgstr "লাইট"
+
+msgid "IDS_WMGR_HEADER_DIGITAL_CLOCK"
+msgstr "ডিজিটেল ঘড়ী"
+
+msgid "IDS_WMGR_MBODY_SHOW_DATE"
+msgstr "তাৰিখ দেখুৱাওক"
+

@@ -1,0 +1,27 @@
+msgid "IDS_WMGR_MBODY_CLOCK_FONT_COLOUR"
+msgstr "හෝරා යන්ත්‍ර ෆොන්ට වර්ණය"
+
+msgid "IDS_CLOCK_MBODY_CLOCK_FONT"
+msgstr "ඔරලෝසු ෆොන්ට්"
+
+msgid "IDS_WMGR_MBODY_SHOW_BATTERY_ICON"
+msgstr "බැටරි නිරූපකය පෙන්වන්න"
+
+msgid "IDS_WMGR_MBODY_SHOW_BLUETOOTH_ICON"
+msgstr "බ්ලූටූත් නිරූපකය පෙන්වන්න"
+
+msgid "IDS_WMGR_OPT_DEFAULT_M_FONT"
+msgstr "පෙරනිමි"
+
+msgid "IDS_WMGR_OPT_DYNAMIC_M_FONT"
+msgstr "ගතික"
+
+msgid "IDS_WMGR_OPT_LIGHT_M_FONT"
+msgstr "ආලෝකය"
+
+msgid "IDS_WMGR_HEADER_DIGITAL_CLOCK"
+msgstr "සංඛ්‍යාංක ඔරලෝසුව"
+
+msgid "IDS_WMGR_MBODY_SHOW_DATE"
+msgstr "දිනය පෙන්වන්න"
+

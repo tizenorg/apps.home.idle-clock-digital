@@ -1,0 +1,27 @@
+msgid "IDS_WMGR_MBODY_CLOCK_FONT_COLOUR"
+msgstr "ពណ៌​ពុម្ពអក្សរ​នាឡិកា"
+
+msgid "IDS_CLOCK_MBODY_CLOCK_FONT"
+msgstr "ពុម្ពអក្សរ​នាឡិកា"
+
+msgid "IDS_WMGR_MBODY_SHOW_BATTERY_ICON"
+msgstr "បង្ហាញ​អាយខុន​ថ្ម"
+
+msgid "IDS_WMGR_MBODY_SHOW_BLUETOOTH_ICON"
+msgstr "បង្ហាញ​អាយខុន Bluetooth"
+
+msgid "IDS_WMGR_OPT_DEFAULT_M_FONT"
+msgstr "លំនាំដើម"
+
+msgid "IDS_WMGR_OPT_DYNAMIC_M_FONT"
+msgstr "ថាមវន្ត"
+
+msgid "IDS_WMGR_OPT_LIGHT_M_FONT"
+msgstr "ស្រាល"
+
+msgid "IDS_WMGR_HEADER_DIGITAL_CLOCK"
+msgstr "នាឡិកា​លេខ"
+
+msgid "IDS_WMGR_MBODY_SHOW_DATE"
+msgstr "បង្ហាញ​កាលបរិច្ឆេទ"
+

@@ -1,0 +1,27 @@
+msgid "IDS_WMGR_MBODY_CLOCK_FONT_COLOUR"
+msgstr "時計の文字色"
+
+msgid "IDS_CLOCK_MBODY_CLOCK_FONT"
+msgstr "時計のフォント"
+
+msgid "IDS_WMGR_MBODY_SHOW_BATTERY_ICON"
+msgstr "バッテリーアイコンを表示"
+
+msgid "IDS_WMGR_MBODY_SHOW_BLUETOOTH_ICON"
+msgstr "Bluetoothアイコンを表示"
+
+msgid "IDS_WMGR_OPT_DEFAULT_M_FONT"
+msgstr "標準"
+
+msgid "IDS_WMGR_OPT_DYNAMIC_M_FONT"
+msgstr "ダイナミック"
+
+msgid "IDS_WMGR_OPT_LIGHT_M_FONT"
+msgstr "ライト"
+
+msgid "IDS_WMGR_HEADER_DIGITAL_CLOCK"
+msgstr "デジタル時計"
+
+msgid "IDS_WMGR_MBODY_SHOW_DATE"
+msgstr "日付を表示"
+

@@ -1,0 +1,27 @@
+msgid "IDS_WMGR_MBODY_CLOCK_FONT_COLOUR"
+msgstr "Klockans teckensnittfärg"
+
+msgid "IDS_CLOCK_MBODY_CLOCK_FONT"
+msgstr "Teckensnitt för klocka"
+
+msgid "IDS_WMGR_MBODY_SHOW_BATTERY_ICON"
+msgstr "Visa batteriikonen"
+
+msgid "IDS_WMGR_MBODY_SHOW_BLUETOOTH_ICON"
+msgstr "Visa Bluetooth-ikonen"
+
+msgid "IDS_WMGR_OPT_DEFAULT_M_FONT"
+msgstr "Standard"
+
+msgid "IDS_WMGR_OPT_DYNAMIC_M_FONT"
+msgstr "Dynamisk"
+
+msgid "IDS_WMGR_OPT_LIGHT_M_FONT"
+msgstr "Lätt"
+
+msgid "IDS_WMGR_HEADER_DIGITAL_CLOCK"
+msgstr "Digital klocka"
+
+msgid "IDS_WMGR_MBODY_SHOW_DATE"
+msgstr "Visa datum"
+

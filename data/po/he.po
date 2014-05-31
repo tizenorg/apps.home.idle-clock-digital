@@ -1,0 +1,27 @@
+msgid "IDS_WMGR_MBODY_CLOCK_FONT_COLOUR"
+msgstr "צבע גופן השעון"
+
+msgid "IDS_CLOCK_MBODY_CLOCK_FONT"
+msgstr "גופן השעון"
+
+msgid "IDS_WMGR_MBODY_SHOW_BATTERY_ICON"
+msgstr "הצג סמל סוללה"
+
+msgid "IDS_WMGR_MBODY_SHOW_BLUETOOTH_ICON"
+msgstr "הצג סמל Bluetooth"
+
+msgid "IDS_WMGR_OPT_DEFAULT_M_FONT"
+msgstr "ברירת מחדל"
+
+msgid "IDS_WMGR_OPT_DYNAMIC_M_FONT"
+msgstr "דינמי"
+
+msgid "IDS_WMGR_OPT_LIGHT_M_FONT"
+msgstr "קל"
+
+msgid "IDS_WMGR_HEADER_DIGITAL_CLOCK"
+msgstr "שעון דיגיטלי"
+
+msgid "IDS_WMGR_MBODY_SHOW_DATE"
+msgstr "הצג תאריך"
+

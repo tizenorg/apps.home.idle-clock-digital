@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Application xmlns:android="http://schemas.android.com/apk/res/android" type="clock" version="001" language="english">
+    <packageName>org.tizen.idle-clock-digital</packageName>
+    <DisplayName>@IDS_WMGR_HEADER_DIGITAL_CLOCK</DisplayName>
+    <Settings>
+        <Item id="showdate" title_type="title" setting_type="checkbox">
+            <Title>@IDS_WMGR_MBODY_SHOW_DATE</Title>
+            <CheckBox checked="yes" />
+        </Item>
+	<Item id="clock_font" title_type="title_subtitle" setting_type="radiobox" >
+		<Title>@IDS_CLOCK_MBODY_CLOCK_FONT</Title>
+		<SubTitle>@IDS_WMGR_OPT_DEFAULT_M_FONT</SubTitle>
+		<Radiobox id="clock_font" number="3" selected="1" conditional_value="1" >
+			<RadioboxItem>@IDS_WMGR_OPT_DEFAULT_M_FONT</RadioboxItem>
+			<RadioboxItem>@IDS_WMGR_OPT_LIGHT_M_FONT</RadioboxItem>
+			<RadioboxItem>@IDS_WMGR_OPT_DYNAMIC_M_FONT</RadioboxItem>
+		</Radiobox>
+	</Item>
+	<Item id="clock_font_color" title_type="title" setting_type="palette">
+            <Title>@IDS_WMGR_MBODY_CLOCK_FONT_COLOUR</Title>
+            <Palette id="clock_font_color" number="12" selected="8">
+                <PaletteItem>#000000</PaletteItem>
+                <PaletteItem>#CEFF00</PaletteItem>
+                <PaletteItem>#FF6519</PaletteItem>
+                <PaletteItem>#BCFFFB</PaletteItem>
+                <PaletteItem>#F03880</PaletteItem>
+                <PaletteItem>#FFEA00</PaletteItem>
+                <PaletteItem>#673E27</PaletteItem>
+                <PaletteItem>#FFFFFF</PaletteItem>
+                <PaletteItem>#042860</PaletteItem>
+                <PaletteItem>#F2DCC5</PaletteItem>
+                <PaletteItem>#F62E00</PaletteItem>
+                <PaletteItem>#595959</PaletteItem>
+            </Palette>
+        </Item>
+    </Settings>
+</Application>

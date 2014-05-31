@@ -1,0 +1,27 @@
+msgid "IDS_WMGR_MBODY_CLOCK_FONT_COLOUR"
+msgstr "گھڑی کے فونٹ کا رنگ"
+
+msgid "IDS_CLOCK_MBODY_CLOCK_FONT"
+msgstr "گھڑی کا فونٹ"
+
+msgid "IDS_WMGR_MBODY_SHOW_BATTERY_ICON"
+msgstr "بیٹری کا آئیکن دکھائیں"
+
+msgid "IDS_WMGR_MBODY_SHOW_BLUETOOTH_ICON"
+msgstr "بلوٹوتھ کا آئیکن دکھائیں"
+
+msgid "IDS_WMGR_OPT_DEFAULT_M_FONT"
+msgstr "ڈیفالٹ"
+
+msgid "IDS_WMGR_OPT_DYNAMIC_M_FONT"
+msgstr "متحرک"
+
+msgid "IDS_WMGR_OPT_LIGHT_M_FONT"
+msgstr "ہلکا"
+
+msgid "IDS_WMGR_HEADER_DIGITAL_CLOCK"
+msgstr "ڈيجیٹل گھڑی"
+
+msgid "IDS_WMGR_MBODY_SHOW_DATE"
+msgstr "تاریخ دکھائیں"
+

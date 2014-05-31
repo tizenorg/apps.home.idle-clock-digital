@@ -1,0 +1,27 @@
+msgid "IDS_WMGR_MBODY_CLOCK_FONT_COLOUR"
+msgstr "Cor de fonte do reloxo"
+
+msgid "IDS_CLOCK_MBODY_CLOCK_FONT"
+msgstr "Fonte do reloxo"
+
+msgid "IDS_WMGR_MBODY_SHOW_BATTERY_ICON"
+msgstr "Amosar icona da batería"
+
+msgid "IDS_WMGR_MBODY_SHOW_BLUETOOTH_ICON"
+msgstr "Amosar icona do Bluetooth"
+
+msgid "IDS_WMGR_OPT_DEFAULT_M_FONT"
+msgstr "Predeterminado"
+
+msgid "IDS_WMGR_OPT_DYNAMIC_M_FONT"
+msgstr "Dinámico"
+
+msgid "IDS_WMGR_OPT_LIGHT_M_FONT"
+msgstr "Luz"
+
+msgid "IDS_WMGR_HEADER_DIGITAL_CLOCK"
+msgstr "Reloxo dixital"
+
+msgid "IDS_WMGR_MBODY_SHOW_DATE"
+msgstr "Amosar data"
+

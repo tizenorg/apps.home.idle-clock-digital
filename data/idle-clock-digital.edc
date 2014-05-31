@@ -1,0 +1,819 @@
+/*
+ * Copyright 2012  Samsung Electronics Co., Ltd
+ *
+ * Licensed under the Flora License, Version 1.0 (the License);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.tizenopensource.org/license
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an AS IS BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+#define WIN_HEIGHT 320
+#define WIN_WIDTH 320
+
+#define EMUL_ADJ 22
+
+#define ADJ 9
+#define Y_AXIS 96.5
+#define Y_AXIS_NODATE 118
+#define TIME_NUM_HEIGHT 84
+#define TIME_DATE_GAP 9
+#define DATE_HEIGHT 34
+
+#define LIGHT_ADJ 27
+#define LIGHT_Y_AXIS 92
+#define LIGHT_Y_AXIS_NODATE 116.5
+#define LIGHT_TIME_NUM_HEIGHT 87
+#define LIGHT_TIME_DATE_GAP 15
+
+#define DYNAMIC_ADJ 11
+#define DYNAMIC_Y_AXIS 98
+#define DYNAMIC_Y_AXIS_NODATE 116.5
+#define DYNAMIC_TIME_NUM_HEIGHT 87
+#define DYNAMIC_TIME_DATE_GAP 3
+
+#define SAMSUNG_SANS "Samsung Sans"
+
+#define PROGRAM_SHOW_DATE( TYPE, NUM ) \
+		program { \
+			signal: "show,"TYPE"_text_date_"NUM; \
+			source: "source_"TYPE"_text_date"; \
+			action: STATE_SET "text_date_"NUM 0.0; \
+			target: ""TYPE"_text_date"; \
+		}
+
+collections {
+	group {
+		name : "layout_clock_digital";
+		styles {
+			style {
+				name: "textblock_digit_style";
+				base: "font=SamsungSans:style=Light font_size=106 color=#ffffff align=center style=shadow,bottom shadow_color=#00000088 text_class=idle_font";
+				tag:  "br" "\n";
+				tag:  "hilight" "+ font_weight=Bold";
+				tag:  "b" "+ font_weight=Bold";
+				tag:  "tab" "\t";
+			}
+			style {
+				name: "light_textblock_digit_style";
+				base: "font=SamsungSans:style=Light font_size=116 color=#ffffff align=center style=shadow,bottom shadow_color=#00000088 text_class=idle_font";
+				tag:  "br" "\n";
+				tag:  "hilight" "+ font_weight=Bold";
+				tag:  "b" "+ font_weight=Bold";
+				tag:  "tab" "\t";
+			}
+			style {
+				name: "dynamic_textblock_digit_style";
+				base: "font=SamsungSans:style=ExtraBold font_size=90 color=#ffffff align=center style=shadow,bottom shadow_color=#00000088 text_class=idle_font";
+				tag:  "br" "\n";
+				tag:  "hilight" "+ font_weight=Bold";
+				tag:  "b" "+ font_weight=Bold";
+				tag:  "tab" "\t";
+			}
+		}
+
+		images{
+			image: "bluetooth_off.png" COMP;
+			image: "bluetooth_on.png" COMP;
+		}
+		parts{
+			part {
+				name : "bg";
+				type : RECT;
+				scale: 1;
+				description {
+					state : "default" 0.0;
+					rel1 { relative: 0.0 0.0;}
+					rel2 { relative: 1.0 1.0;}
+					color : 0 0 0 0;
+				}
+			}
+
+			part {
+				name :"clipper";
+				type: RECT;
+				description {
+					state: "default" 0.0;
+					color: 255 255 255 255 ;
+				}
+				description {
+					state: "hide" 0.0;
+					color: 0 0 0 0 ;
+				}
+			}
+
+			part {
+				name: "textblock_time";
+				type: TEXTBLOCK;
+				effect: SHADOW BOTTOM;
+				scale: 1;
+				clip_to: "clipper";
+				description {
+					state: "default" 0.0;
+					rel1 { relative: 0.0 0.0; to: "bg"; }
+					rel2 { relative: 1.0 (Y_AXIS+TIME_NUM_HEIGHT+ADJ)/WIN_HEIGHT; to: "bg"; }
+					fixed: 1 1;
+					visible: 1;
+					color: 255 255 255 255;
+					align: 0.5 1.0;
+					text{
+						text: "";
+						style: "textblock_digit_style";
+						text_class: "idle_font";
+						align: 0.5 1.0;
+					}
+				}
+				description{
+					state: "no_date" 0.0;
+					inherit: "default" 0.0;
+					rel1 { relative: 0.0 0.0; to: "bg"; }
+					rel2 { relative: 1.0 (Y_AXIS_NODATE+TIME_NUM_HEIGHT+ADJ)/WIN_HEIGHT; to: "bg"; }
+				}
+				description{
+					state: "hide_default_time" 0.0;
+					inherit: "default" 0.0;
+					visible: 0;
+				}
+			}
+
+			part {
+				name: "light_textblock_time";
+				type: TEXTBLOCK;
+				effect: SHADOW BOTTOM;
+				scale: 1;
+				clip_to: "clipper";
+				description {
+					state: "default" 0.0;
+					rel1 { relative: 0.0 0.0; to: "bg"; }
+					rel2 { relative: 1.0 (LIGHT_Y_AXIS+LIGHT_TIME_NUM_HEIGHT+LIGHT_ADJ)/WIN_HEIGHT; to: "bg"; }
+					fixed: 1 1;
+					visible: 1;
+					color: 255 255 255 255;
+					align: 0.5 1.0;
+					text{
+						text: "";
+						style: "light_textblock_digit_style";
+						text_class: "idle_font";
+						align: 0.5 1.0;
+					}
+				}
+				description{
+					state: "no_date" 0.0;
+					inherit: "default" 0.0;
+					rel1 { relative: 0.0 0.0; to: "bg"; }
+					rel2 { relative: 1.0 (LIGHT_Y_AXIS_NODATE+LIGHT_TIME_NUM_HEIGHT+LIGHT_ADJ)/WIN_HEIGHT; to: "bg"; }
+				}
+				description{
+					state: "hide_light_time" 0.0;
+					inherit: "default" 0.0;
+					visible: 0;
+				}
+			}
+
+			part {
+				name: "dynamic_textblock_time";
+				type: TEXTBLOCK;
+				effect: SHADOW BOTTOM;
+				scale: 1;
+				clip_to: "clipper";
+				description {
+					state: "default" 0.0;
+					rel1 { relative: 0.0 0.0; to: "bg"; }
+					rel2 { relative: 1.0 (DYNAMIC_Y_AXIS+DYNAMIC_TIME_NUM_HEIGHT+DYNAMIC_ADJ)/WIN_HEIGHT; to: "bg"; }
+					fixed: 1 1;
+					visible: 1;
+					color: 255 255 255 255;
+					align: 0.5 1.0;
+					text{
+						text: "";
+						style: "dynamic_textblock_digit_style";
+						text_class: "idle_font";
+						align: 0.5 1.0;
+					}
+				}
+				description{
+					state: "no_date" 0.0;
+					inherit: "default" 0.0;
+					rel1 { relative: 0.0 0.0; to: "bg"; }
+					rel2 { relative: 1.0 (DYNAMIC_Y_AXIS_NODATE+DYNAMIC_TIME_NUM_HEIGHT+DYNAMIC_ADJ)/WIN_HEIGHT; to: "bg"; }
+				}
+				description{
+					state: "hide_dynamic_time" 0.0;
+					inherit: "default" 0.0;
+					visible: 0;
+				}
+			}
+
+			part {
+				name: "emulator_textblock_time";
+				type: TEXTBLOCK;
+				effect: SHADOW BOTTOM;
+				scale: 1;
+				clip_to: "clipper";
+				description {
+					state: "default" 0.0;
+					rel1 { relative: 0.0 (Y_AXIS+TIME_NUM_HEIGHT+EMUL_ADJ)/WIN_HEIGHT; to: "bg"; }
+					rel2 { relative: 1.0 (Y_AXIS+TIME_NUM_HEIGHT+EMUL_ADJ)/WIN_HEIGHT; to: "bg"; }
+					fixed: 0 0;
+					visible: 1;
+					color: 255 255 255 255;
+					align: 0.5 1.0;
+					text{
+						text: "";
+						style: "textblock_digit_style";
+						align: 0.5 0.5;
+						min: 0 1;
+					}
+				}
+				description{
+					state: "no_date" 0.0;
+					inherit: "default" 0.0;
+					rel1 { relative: 0.0 (Y_AXIS_NODATE+TIME_NUM_HEIGHT+EMUL_ADJ)/WIN_HEIGHT; to: "bg"; }
+					rel2 { relative: 1.0 (Y_AXIS_NODATE+TIME_NUM_HEIGHT+EMUL_ADJ)/WIN_HEIGHT; to: "bg"; }
+				}
+				description{
+					state: "hide_emulator_time" 0.0;
+					inherit: "default" 0.0;
+					visible: 0;
+				}
+			}
+/*
+			part {
+				name : "guide-border-date";
+				type : RECT;
+				description {
+					state : "default" 0.0;
+					color : 0 255 0 255;
+					rel1 { relative: 0.0 1.0; offset: 0 TIME_DATE_GAP; to: "textblock_time"; }
+					rel2 { relative: 1.0 1.0; offset: 0 TIME_DATE_GAP+DATE_HEIGHT; to: "textblock_time"; }
+				}
+*/
+
+			part{
+				name: "default_text_date";
+				type: TEXT;
+				effect: SHADOW BOTTOM;
+				scale: 1;
+				clip_to: "clipper";
+				description{
+					state: "default" 0.0;
+					color: 255 255 255 255;
+					color2: 255 128 0 255;
+					rel1 { relative: 0.0 (Y_AXIS+TIME_NUM_HEIGHT+TIME_DATE_GAP)/WIN_HEIGHT; to: "bg"; }
+					rel2 { relative: 1.0 (Y_AXIS+TIME_NUM_HEIGHT+TIME_DATE_GAP+DATE_HEIGHT)/WIN_HEIGHT; to: "bg"; }
+					text{
+						text: "";
+						font: SAMSUNG_SANS":style=Regular";
+						text_class: "tizen";
+						size: 34;
+						align: 0.5 0.5;
+					}
+					visible: 0;
+				}
+				description{
+					state: "text_date_1" 0.0;
+					inherit: "default" 0.0;
+					color: 0 0 0 255;
+					visible: 1;
+				}
+				description{
+					state: "text_date_2" 0.0;
+					inherit: "default" 0.0;
+					color: 206 255 0 255;
+					visible: 1;
+				}
+				description{
+					state: "text_date_3" 0.0;
+					inherit: "default" 0.0;
+					color: 255 101 25 255;
+					visible: 1;
+				}
+				description{
+					state: "text_date_4" 0.0;
+					inherit: "default" 0.0;
+					color: 188 255 251 255;
+					visible: 1;
+				}
+				description{
+					state: "text_date_5" 0.0;
+					inherit: "default" 0.0;
+					color: 240 56 128 255;
+					visible: 1;
+				}
+				description{
+					state: "text_date_6" 0.0;
+					inherit: "default" 0.0;
+					color: 255 234 0 255;
+					visible: 1;
+				}
+				description{
+					state: "text_date_7" 0.0;
+					inherit: "default" 0.0;
+					color: 103 62 39 255;
+					visible: 1;
+				}
+				description{
+					state: "text_date_8" 0.0;
+					inherit: "default" 0.0;
+					color: 255 255 255 255;
+					visible: 1;
+				}
+				description{
+					state: "text_date_9" 0.0;
+					inherit: "default" 0.0;
+					color: 4 40 96 255;
+					visible: 1;
+				}
+				description{
+					state: "text_date_10" 0.0;
+					inherit: "default" 0.0;
+					color: 242 220 197 255;
+					visible: 1;
+				}
+				description{
+					state: "text_date_11" 0.0;
+					inherit: "default" 0.0;
+					color: 246 46 0 255;
+					visible: 1;
+				}
+				description{
+					state: "text_date_12" 0.0;
+					inherit: "default" 0.0;
+					color: 89 89 89 255;
+					visible: 1;
+				}
+			}
+
+			part{
+				name: "light_text_date";
+				type: TEXT;
+				effect: SHADOW BOTTOM;
+				scale: 1;
+				clip_to: "clipper";
+				description{
+					state: "default" 0.0;
+					color: 255 255 255 255;
+					color2: 255 128 0 255;
+					rel1 { relative: 0.0 (LIGHT_Y_AXIS+LIGHT_TIME_NUM_HEIGHT+LIGHT_TIME_DATE_GAP)/WIN_HEIGHT; to: "bg"; }
+					rel2 { relative: 1.0 (LIGHT_Y_AXIS+LIGHT_TIME_NUM_HEIGHT+LIGHT_TIME_DATE_GAP+DATE_HEIGHT)/WIN_HEIGHT; to: "bg"; }
+					text{
+						text: "";
+						font: SAMSUNG_SANS":style=Regular";
+						text_class: "tizen";
+						size: 34;
+						align: 0.5 0.5;
+					}
+					visible: 0;
+				}
+				description{
+					state: "text_date_1" 0.0;
+					inherit: "default" 0.0;
+					color: 0 0 0 255;
+					visible: 1;
+				}
+				description{
+					state: "text_date_2" 0.0;
+					inherit: "default" 0.0;
+					color: 206 255 0 255;
+					visible: 1;
+				}
+				description{
+					state: "text_date_3" 0.0;
+					inherit: "default" 0.0;
+					color: 255 101 25 255;
+					visible: 1;
+				}
+				description{
+					state: "text_date_4" 0.0;
+					inherit: "default" 0.0;
+					color: 188 255 251 255;
+					visible: 1;
+				}
+				description{
+					state: "text_date_5" 0.0;
+					inherit: "default" 0.0;
+					color: 240 56 128 255;
+					visible: 1;
+				}
+				description{
+					state: "text_date_6" 0.0;
+					inherit: "default" 0.0;
+					color: 255 234 0 255;
+					visible: 1;
+				}
+				description{
+					state: "text_date_7" 0.0;
+					inherit: "default" 0.0;
+					color: 103 62 39 255;
+					visible: 1;
+				}
+				description{
+					state: "text_date_8" 0.0;
+					inherit: "default" 0.0;
+					color: 255 255 255 255;
+					visible: 1;
+				}
+				description{
+					state: "text_date_9" 0.0;
+					inherit: "default" 0.0;
+					color: 4 40 96 255;
+					visible: 1;
+				}
+				description{
+					state: "text_date_10" 0.0;
+					inherit: "default" 0.0;
+					color: 242 220 197 255;
+					visible: 1;
+				}
+				description{
+					state: "text_date_11" 0.0;
+					inherit: "default" 0.0;
+					color: 246 46 0 255;
+					visible: 1;
+				}
+				description{
+					state: "text_date_12" 0.0;
+					inherit: "default" 0.0;
+					color: 89 89 89 255;
+					visible: 1;
+				}
+			}
+
+			part{
+				name: "dynamic_text_date";
+				type: TEXT;
+				effect: SHADOW BOTTOM;
+				scale: 1;
+				clip_to: "clipper";
+				description{
+					state: "default" 0.0;
+					color: 255 255 255 255;
+					color2: 255 128 0 255;
+					rel1 { relative: 0.0 (DYNAMIC_Y_AXIS+DYNAMIC_TIME_NUM_HEIGHT+DYNAMIC_TIME_DATE_GAP)/WIN_HEIGHT; to: "bg"; }
+					rel2 { relative: 1.0 (DYNAMIC_Y_AXIS+DYNAMIC_TIME_NUM_HEIGHT+DYNAMIC_TIME_DATE_GAP+DATE_HEIGHT)/WIN_HEIGHT; to: "bg"; }
+					text{
+						text: "";
+						font: SAMSUNG_SANS":style=Regular";
+						text_class: "tizen";
+						size: 34;
+						align: 0.5 0.5;
+					}
+					visible: 0;
+				}
+				description{
+					state: "text_date_1" 0.0;
+					inherit: "default" 0.0;
+					color: 0 0 0 255;
+					visible: 1;
+				}
+				description{
+					state: "text_date_2" 0.0;
+					inherit: "default" 0.0;
+					color: 206 255 0 255;
+					visible: 1;
+				}
+				description{
+					state: "text_date_3" 0.0;
+					inherit: "default" 0.0;
+					color: 255 101 25 255;
+					visible: 1;
+				}
+				description{
+					state: "text_date_4" 0.0;
+					inherit: "default" 0.0;
+					color: 188 255 251 255;
+					visible: 1;
+				}
+				description{
+					state: "text_date_5" 0.0;
+					inherit: "default" 0.0;
+					color: 240 56 128 255;
+					visible: 1;
+				}
+				description{
+					state: "text_date_6" 0.0;
+					inherit: "default" 0.0;
+					color: 255 234 0 255;
+					visible: 1;
+				}
+				description{
+					state: "text_date_7" 0.0;
+					inherit: "default" 0.0;
+					color: 103 62 39 255;
+					visible: 1;
+				}
+				description{
+					state: "text_date_8" 0.0;
+					inherit: "default" 0.0;
+					color: 255 255 255 255;
+					visible: 1;
+				}
+				description{
+					state: "text_date_9" 0.0;
+					inherit: "default" 0.0;
+					color: 4 40 96 255;
+					visible: 1;
+				}
+				description{
+					state: "text_date_10" 0.0;
+					inherit: "default" 0.0;
+					color: 242 220 197 255;
+					visible: 1;
+				}
+				description{
+					state: "text_date_11" 0.0;
+					inherit: "default" 0.0;
+					color: 246 46 0 255;
+					visible: 1;
+				}
+				description{
+					state: "text_date_12" 0.0;
+					inherit: "default" 0.0;
+					color: 89 89 89 255;
+					visible: 1;
+				}
+			}
+
+			part{
+				name: "emulator_text_date";
+				type: TEXT;
+				effect: SHADOW BOTTOM;
+				scale: 1;
+				clip_to: "clipper";
+				description{
+					state: "default" 0.0;
+					color: 255 255 255 255;
+					color2: 255 128 0 255;
+					rel1 { relative: 0.0 (Y_AXIS+TIME_NUM_HEIGHT+TIME_DATE_GAP)/WIN_HEIGHT; to: "bg"; }
+					rel2 { relative: 1.0 (Y_AXIS+TIME_NUM_HEIGHT+TIME_DATE_GAP+DATE_HEIGHT)/WIN_HEIGHT; to: "bg"; }
+					text{
+						text: "";
+						size: 34;
+						align: 0.5 0.5;
+					}
+					visible: 0;
+				}
+				description{
+					state: "text_date_1" 0.0;
+					inherit: "default" 0.0;
+					color: 0 0 0 255;
+					visible: 1;
+				}
+				description{
+					state: "text_date_2" 0.0;
+					inherit: "default" 0.0;
+					color: 206 255 0 255;
+					visible: 1;
+				}
+				description{
+					state: "text_date_3" 0.0;
+					inherit: "default" 0.0;
+					color: 255 101 25 255;
+					visible: 1;
+				}
+				description{
+					state: "text_date_4" 0.0;
+					inherit: "default" 0.0;
+					color: 188 255 251 255;
+					visible: 1;
+				}
+				description{
+					state: "text_date_5" 0.0;
+					inherit: "default" 0.0;
+					color: 240 56 128 255;
+					visible: 1;
+				}
+				description{
+					state: "text_date_6" 0.0;
+					inherit: "default" 0.0;
+					color: 255 234 0 255;
+					visible: 1;
+				}
+				description{
+					state: "text_date_7" 0.0;
+					inherit: "default" 0.0;
+					color: 103 62 39 255;
+					visible: 1;
+				}
+				description{
+					state: "text_date_8" 0.0;
+					inherit: "default" 0.0;
+					color: 255 255 255 255;
+					visible: 1;
+				}
+				description{
+					state: "text_date_9" 0.0;
+					inherit: "default" 0.0;
+					color: 4 40 96 255;
+					visible: 1;
+				}
+				description{
+					state: "text_date_10" 0.0;
+					inherit: "default" 0.0;
+					color: 242 220 197 255;
+					visible: 1;
+				}
+				description{
+					state: "text_date_11" 0.0;
+					inherit: "default" 0.0;
+					color: 246 46 0 255;
+					visible: 1;
+				}
+				description{
+					state: "text_date_12" 0.0;
+					inherit: "default" 0.0;
+					color: 89 89 89 255;
+					visible: 1;
+				}
+			}
+		} //parts end
+		programs{
+			program{
+				name: "show_effect";
+				signal: "show_effect";
+				source: "";
+				action: STATE_SET "default" 0.0;
+				target: "clipper";
+			}
+			program{
+				name: "hide_effect";
+				signal: "hide_effect";
+				source: "";
+				action: STATE_SET "hide" 0.0;
+				target: "clipper";
+			}
+			program{
+				name: "change,no_date";
+				signal: "change,no_date";
+				source: "source_textblock_time";
+				action: STATE_SET "no_date" 0.0;
+				target: "textblock_time";
+			}
+			program{
+				name: "change,light_no_date";
+				signal: "change,light_no_date";
+				source: "source_light_textblock_time";
+				action: STATE_SET "no_date" 0.0;
+				target: "light_textblock_time";
+			}
+			program{
+				name: "change,dynamic_no_date";
+				signal: "change,dynamic_no_date";
+				source: "source_dynamic_textblock_time";
+				action: STATE_SET "no_date" 0.0;
+				target: "dynamic_textblock_time";
+			}
+			program{
+				name: "change,emulator_no_date";
+				signal: "change,emulator_no_date";
+				source: "source_emulator_textblock_time";
+				action: STATE_SET "no_date" 0.0;
+				target: "emulator_textblock_time";
+			}
+
+			PROGRAM_SHOW_DATE(default, 1);
+			PROGRAM_SHOW_DATE(default, 2);
+			PROGRAM_SHOW_DATE(default, 3);
+			PROGRAM_SHOW_DATE(default, 4);
+			PROGRAM_SHOW_DATE(default, 5);
+			PROGRAM_SHOW_DATE(default, 6);
+			PROGRAM_SHOW_DATE(default, 7);
+			PROGRAM_SHOW_DATE(default, 8);
+			PROGRAM_SHOW_DATE(default, 9);
+			PROGRAM_SHOW_DATE(default, 10);
+			PROGRAM_SHOW_DATE(default, 11);
+			PROGRAM_SHOW_DATE(default, 12);
+
+			PROGRAM_SHOW_DATE(light, 1);
+			PROGRAM_SHOW_DATE(light, 2);
+			PROGRAM_SHOW_DATE(light, 3);
+			PROGRAM_SHOW_DATE(light, 4);
+			PROGRAM_SHOW_DATE(light, 5);
+			PROGRAM_SHOW_DATE(light, 6);
+			PROGRAM_SHOW_DATE(light, 7);
+			PROGRAM_SHOW_DATE(light, 8);
+			PROGRAM_SHOW_DATE(light, 9);
+			PROGRAM_SHOW_DATE(light, 10);
+			PROGRAM_SHOW_DATE(light, 11);
+			PROGRAM_SHOW_DATE(light, 12);
+
+			PROGRAM_SHOW_DATE(dynamic, 1);
+			PROGRAM_SHOW_DATE(dynamic, 2);
+			PROGRAM_SHOW_DATE(dynamic, 3);
+			PROGRAM_SHOW_DATE(dynamic, 4);
+			PROGRAM_SHOW_DATE(dynamic, 5);
+			PROGRAM_SHOW_DATE(dynamic, 6);
+			PROGRAM_SHOW_DATE(dynamic, 7);
+			PROGRAM_SHOW_DATE(dynamic, 8);
+			PROGRAM_SHOW_DATE(dynamic, 9);
+			PROGRAM_SHOW_DATE(dynamic, 10);
+			PROGRAM_SHOW_DATE(dynamic, 11);
+			PROGRAM_SHOW_DATE(dynamic, 12);
+
+			PROGRAM_SHOW_DATE(emulator, 1);
+			PROGRAM_SHOW_DATE(emulator, 2);
+			PROGRAM_SHOW_DATE(emulator, 3);
+			PROGRAM_SHOW_DATE(emulator, 4);
+			PROGRAM_SHOW_DATE(emulator, 5);
+			PROGRAM_SHOW_DATE(emulator, 6);
+			PROGRAM_SHOW_DATE(emulator, 7);
+			PROGRAM_SHOW_DATE(emulator, 8);
+			PROGRAM_SHOW_DATE(emulator, 9);
+			PROGRAM_SHOW_DATE(emulator, 10);
+			PROGRAM_SHOW_DATE(emulator, 11);
+			PROGRAM_SHOW_DATE(emulator, 12);
+
+			program{
+				name: "change,yes_date";
+				signal: "change,yes_date";
+				source: "source_textblock_time";
+				action: STATE_SET "default" 0.0;
+				target: "textblock_time";
+			}
+			program{
+				name: "change,yes_date_light";
+				signal: "change,yes_date_light";
+				source: "source_light_textblock_time";
+				action: STATE_SET "default" 0.0;
+				target: "light_textblock_time";
+			}
+			program{
+				name: "change,yes_date_dynamic";
+				signal: "change,yes_date_dynamic";
+				source: "source_dynamic_textblock_time";
+				action: STATE_SET "default" 0.0;
+				target: "dynamic_textblock_time";
+			}
+			program{
+				name: "change,yes_date_emulator";
+				signal: "change,yes_date_emulator";
+				source: "source_emulator_textblock_time";
+				action: STATE_SET "default" 0.0;
+				target: "emulator_textblock_time";
+			}
+			program{
+				name: "hide,default_time";
+				signal: "hide,default_time";
+				source: "source_default_time";
+				action: STATE_SET "hide_default_time" 0.0;
+				target: "textblock_time";
+			}
+			program{
+				name: "hide,light_time";
+				signal: "hide,light_time";
+				source: "source_light_time";
+				action: STATE_SET "hide_light_time" 0.0;
+				target: "light_textblock_time";
+			}
+			program{
+				name: "hide,dynamic_time";
+				signal: "hide,dynamic_time";
+				source: "source_dynamic_time";
+				action: STATE_SET "hide_dynamic_time" 0.0;
+				target: "dynamic_textblock_time";
+			}
+			program{
+				name: "hide,emulator_time";
+				signal: "hide,emulator_time";
+				source: "source_emulator_time";
+				action: STATE_SET "hide_emulator_time" 0.0;
+				target: "emulator_textblock_time";
+			}
+
+			program{
+				name: "hide,text_date";
+				signal: "hide,text_date";
+				source: "source_text_date";
+				action: STATE_SET "default" 0.0;
+				target: "default_text_date";
+			}
+			program{
+				name: "hide,light_text_date";
+				signal: "hide,light_text_date";
+				source: "source_light_text_date";
+				action: STATE_SET "default" 0.0;
+				target: "light_text_date";
+			}
+			program{
+				name: "hide,dynamic_text_date";
+				signal: "hide,dynamic_text_date";
+				source: "source_dynamic_text_date";
+				action: STATE_SET "default" 0.0;
+				target: "dynamic_text_date";
+			}
+			program{
+				name: "hide,emulator_text_date";
+				signal: "hide,emulator_text_date";
+				source: "source_emulator_text_date";
+				action: STATE_SET "default" 0.0;
+				target: "emulator_text_date";
+			}
+		} // programs end
+	} //group end
+}

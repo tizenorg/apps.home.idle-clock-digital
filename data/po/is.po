@@ -1,0 +1,27 @@
+msgid "IDS_WMGR_MBODY_CLOCK_FONT_COLOUR"
+msgstr "Leturlitur klukku"
+
+msgid "IDS_CLOCK_MBODY_CLOCK_FONT"
+msgstr "Letur klukku"
+
+msgid "IDS_WMGR_MBODY_SHOW_BATTERY_ICON"
+msgstr "Sýna rafhlöðutákn"
+
+msgid "IDS_WMGR_MBODY_SHOW_BLUETOOTH_ICON"
+msgstr "Sýna Bluetooth-tákn"
+
+msgid "IDS_WMGR_OPT_DEFAULT_M_FONT"
+msgstr "Sjálfgefið"
+
+msgid "IDS_WMGR_OPT_DYNAMIC_M_FONT"
+msgstr "Kvikt"
+
+msgid "IDS_WMGR_OPT_LIGHT_M_FONT"
+msgstr "Létt"
+
+msgid "IDS_WMGR_HEADER_DIGITAL_CLOCK"
+msgstr "Stafræn klukka"
+
+msgid "IDS_WMGR_MBODY_SHOW_DATE"
+msgstr "Sýna dagsetningu"
+

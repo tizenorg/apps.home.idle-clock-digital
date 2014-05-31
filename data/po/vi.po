@@ -1,0 +1,27 @@
+msgid "IDS_WMGR_MBODY_CLOCK_FONT_COLOUR"
+msgstr "Màu chữ đồng hồ"
+
+msgid "IDS_CLOCK_MBODY_CLOCK_FONT"
+msgstr "Font chữ đồng hồ"
+
+msgid "IDS_WMGR_MBODY_SHOW_BATTERY_ICON"
+msgstr "Hiển thị biểu tượng pin"
+
+msgid "IDS_WMGR_MBODY_SHOW_BLUETOOTH_ICON"
+msgstr "Hiển thị biểu tượng Bluetooth"
+
+msgid "IDS_WMGR_OPT_DEFAULT_M_FONT"
+msgstr "Mặc định"
+
+msgid "IDS_WMGR_OPT_DYNAMIC_M_FONT"
+msgstr "Động"
+
+msgid "IDS_WMGR_OPT_LIGHT_M_FONT"
+msgstr "Nhẹ"
+
+msgid "IDS_WMGR_HEADER_DIGITAL_CLOCK"
+msgstr "Đồng hồ số"
+
+msgid "IDS_WMGR_MBODY_SHOW_DATE"
+msgstr "Hiển thị ngày"
+

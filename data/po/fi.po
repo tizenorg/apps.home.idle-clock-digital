@@ -1,0 +1,27 @@
+msgid "IDS_WMGR_MBODY_CLOCK_FONT_COLOUR"
+msgstr "Kellon fonttiväri"
+
+msgid "IDS_CLOCK_MBODY_CLOCK_FONT"
+msgstr "Kellon fontti"
+
+msgid "IDS_WMGR_MBODY_SHOW_BATTERY_ICON"
+msgstr "Näytä akkukuvake"
+
+msgid "IDS_WMGR_MBODY_SHOW_BLUETOOTH_ICON"
+msgstr "Näytä Bluetooth-kuvake"
+
+msgid "IDS_WMGR_OPT_DEFAULT_M_FONT"
+msgstr "Oletus"
+
+msgid "IDS_WMGR_OPT_DYNAMIC_M_FONT"
+msgstr "Dynaaminen"
+
+msgid "IDS_WMGR_OPT_LIGHT_M_FONT"
+msgstr "Ohut"
+
+msgid "IDS_WMGR_HEADER_DIGITAL_CLOCK"
+msgstr "Digitaalinen kello"
+
+msgid "IDS_WMGR_MBODY_SHOW_DATE"
+msgstr "Näytä päivämäärä"
+

@@ -1,0 +1,27 @@
+msgid "IDS_WMGR_MBODY_CLOCK_FONT_COLOUR"
+msgstr "கடிகார எழுத்துரு நிறம்"
+
+msgid "IDS_CLOCK_MBODY_CLOCK_FONT"
+msgstr "கடிகார எழுத்துரு"
+
+msgid "IDS_WMGR_MBODY_SHOW_BATTERY_ICON"
+msgstr "மின்கல சின்னத்தை காட்டு"
+
+msgid "IDS_WMGR_MBODY_SHOW_BLUETOOTH_ICON"
+msgstr "ப்ளூடூத் சின்னத்தை காட்டு"
+
+msgid "IDS_WMGR_OPT_DEFAULT_M_FONT"
+msgstr "டீஃபால்ட்"
+
+msgid "IDS_WMGR_OPT_DYNAMIC_M_FONT"
+msgstr "டைனமிக்"
+
+msgid "IDS_WMGR_OPT_LIGHT_M_FONT"
+msgstr "விளக்கு"
+
+msgid "IDS_WMGR_HEADER_DIGITAL_CLOCK"
+msgstr "டிஜிடல் கடிகாரம்"
+
+msgid "IDS_WMGR_MBODY_SHOW_DATE"
+msgstr "தேதி காட்டவும்"
+

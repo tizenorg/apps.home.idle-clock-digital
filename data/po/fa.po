@@ -1,0 +1,27 @@
+msgid "IDS_WMGR_MBODY_CLOCK_FONT_COLOUR"
+msgstr "رنگ فونت ساعت"
+
+msgid "IDS_CLOCK_MBODY_CLOCK_FONT"
+msgstr "فونت ساعت"
+
+msgid "IDS_WMGR_MBODY_SHOW_BATTERY_ICON"
+msgstr "نمایش نماد باتری"
+
+msgid "IDS_WMGR_MBODY_SHOW_BLUETOOTH_ICON"
+msgstr "نمایش نماد بلوتوث"
+
+msgid "IDS_WMGR_OPT_DEFAULT_M_FONT"
+msgstr "پیش‌فرض"
+
+msgid "IDS_WMGR_OPT_DYNAMIC_M_FONT"
+msgstr "پویا"
+
+msgid "IDS_WMGR_OPT_LIGHT_M_FONT"
+msgstr "چراغ"
+
+msgid "IDS_WMGR_HEADER_DIGITAL_CLOCK"
+msgstr "ساعت دیجیتال"
+
+msgid "IDS_WMGR_MBODY_SHOW_DATE"
+msgstr "نمایش تاریخ"
+
