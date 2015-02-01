@@ -1,17 +1,19 @@
 /*
- * Copyright 2012  Samsung Electronics Co., Ltd
  *
- * Licensed under the Flora License, Version 1.0 (the License);
+ * Copyright (c) 2000 - 2015 Samsung Electronics Co., Ltd. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *     http://www.tizenopensource.org/license
+ * http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an AS IS BASIS,
+ * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
  */
 
 #include <app.h>
@@ -20,6 +22,7 @@
 #include <vconf-keys.h>
 #include <glib.h>
 #include <vconf.h>
+#include <dd-display.h>
 
 #include "idle-clock-digital-debug.h"
 #include "idle-clock-digital-window.h"
@@ -81,6 +84,7 @@ unsigned long GetElapsedMM(STOPWATCH *pStopWatch)
 static int drawing_state = 0; // 0: nothing, 1: offscreen capture ongoing, 2: onscreen capture ongoing
 static Ecore_Timer *sync_timer = NULL;
 static Ecore_Timer *drawing_timer = NULL;
+static Ecore_Timer *close_timer = NULL;
 static int bg_mode = 0;
 static char *bg_set = NULL;
 static char *bg_wallpaper = NULL;
@@ -421,9 +425,9 @@ __make_dump(void *data, int win_type, int width, int height, char *file)
 		ee = ecore_evas_ecore_evas_get(e);
 		ecore_evas_geometry_get(ee, &x, &y, &w, &h);
 		_D("##### ~~~~~ minicontrol buffer info. x:%d, y:%d, w:%d, h:%d", x, y, w, h);
-		if(w != WIN_SIZE || h != WIN_SIZE) {
+		if(w != WIN_SIZE_W || h != WIN_SIZE_H) {
 			_E("##### window size was changed by someone!!!");
-			evas_object_resize(obj, WIN_SIZE, WIN_SIZE);
+			evas_object_resize(obj, WIN_SIZE_W, WIN_SIZE_H);
 			e = evas_object_evas_get(obj);
 			ee = ecore_evas_ecore_evas_get(e);
 			ecore_evas_geometry_get(ee, &x, &y, &w, &h);
@@ -434,7 +438,7 @@ __make_dump(void *data, int win_type, int width, int height, char *file)
 	}
 
 #if 1
-	_flush_data_to_file(e, pixel_data, DUMP_FILE_PATH_MINICONTROL, WIN_SIZE, WIN_SIZE);
+	_flush_data_to_file(e, pixel_data, DUMP_FILE_PATH_MINICONTROL, 384, WIN_SIZE_H);
 	_D("Minicontorl image copied!!!!!!!!!!!!!!!!!!!!!!");
 
 #else
@@ -558,13 +562,13 @@ static bool __create_window(void *data, int mode)
 	if(ad->win == NULL) {
 		if(mode == BUFFER_TYPE_OFFSCREEN) {
 			ad->win_type = BUFFER_TYPE_OFFSCREEN;
-			__update_clock_to_offscreen(data, WIN_SIZE, WIN_SIZE);
+			__update_clock_to_offscreen(data, WIN_SIZE_W, WIN_SIZE_H);
 
 			return true;
 		}
 		win = idle_clock_digital_window_create(PACKAGE);
 		retvm_if(win == NULL, -1, "Failed add window\n");
-		evas_object_resize(win, WIN_SIZE, WIN_SIZE);
+		evas_object_resize(win, WIN_SIZE_W, WIN_SIZE_H);
 		evas_object_move(win, 0, 0);
 		ad->win = win;
 		ad->win_type = BUFFER_TYPE_MINICONTROL;
@@ -595,6 +599,11 @@ static void __idle_clock_digital_terminate(void *data)
 		ad->ly_main = NULL;
 	}
 
+	if(close_timer != NULL) {
+		ecore_timer_del(close_timer);
+		close_timer = NULL;
+	}
+
 	idle_clock_destroy_view_main(ad);
 
 }
@@ -620,27 +629,27 @@ static void __send_reply(void *data)
 	retm_if(ad == NULL, "Invalid argument: appdata is NULL\n");
 
 	/* send reply */
-	service_h reply;
-	int ret = service_create(&reply);
-	_D("reply service created");
+	app_control_h reply;
+	int ret = app_control_create(&reply);
+	_D("reply app_control created");
 	if (ret == 0) {
 		_D("reply caller");
 		if(ad->win_type == BUFFER_TYPE_OFFSCREEN)
-			ret = service_add_extra_data(reply, "result", DUMP_FILE_PATH_OFFSCREEN);
+			ret = app_control_add_extra_data(reply, "result", DUMP_FILE_PATH_OFFSCREEN);
 		else
-			ret = service_add_extra_data(reply, "result", DUMP_FILE_PATH_MINICONTROL);
+			ret = app_control_add_extra_data(reply, "result", DUMP_FILE_PATH_MINICONTROL);
 
 		if(ret)
-			_E("service_add_extra_data failed");
+			_E("app_control_add_extra_data failed");
 
-		ret = service_reply_to_launch_request(reply, ad->service, SERVICE_RESULT_SUCCEEDED);
+		ret = app_control_reply_to_launch_request(reply, ad->app_control, APP_CONTROL_RESULT_SUCCEEDED);
 
 		if(ret)
-			_E("service_reply_to_launch_request failed");
+			_E("app_control_reply_to_launch_request failed");
 
-		service_destroy(reply);
+		app_control_destroy(reply);
 	} else {
-		_E("service_create failed");
+		_E("app_control_create failed");
 	}
 
 }
@@ -651,7 +660,7 @@ static void __draw_onscreen(void *data)
 	appdata *ad = data;
 	retm_if(ad == NULL, "Invalid argument: appdata is NULL\n");
 
-	__make_dump(data, ad->win_type, WIN_SIZE, WIN_SIZE, DUMP_FILE_PATH_MINICONTROL);
+	__make_dump(data, ad->win_type, WIN_SIZE_W, WIN_SIZE_H, DUMP_FILE_PATH_MINICONTROL);
 	__send_reply(data);
 
 	if(_get_pm_state() == VCONFKEY_PM_STATE_LCDOFF)
@@ -694,7 +703,7 @@ static void __draw_offscreen(void *data)
 	appdata *ad = data;
 	retm_if(ad == NULL, "Invalid argument: appdata is NULL\n");
 
-	live_flush_to_file(ad->e_offscreen, DUMP_FILE_PATH_OFFSCREEN, WIN_SIZE, WIN_SIZE);
+	live_flush_to_file(ad->e_offscreen, DUMP_FILE_PATH_OFFSCREEN, WIN_SIZE_W, WIN_SIZE_H);
 
 	__send_reply(data);
 
@@ -703,6 +712,13 @@ static void __draw_offscreen(void *data)
 
 	drawing_state = 0;
 	drawing_timer = NULL;
+
+	_D("win type = %d and window = %d", ad->win_type, ad->win);
+	if(ad->win_type == BUFFER_TYPE_OFFSCREEN)
+	{
+		_D("offscreen capture completed. app will be closed");
+		elm_exit();
+	}
 }
 
 static Eina_Bool __idler_drawing_offscreen_cb(void *data)
@@ -733,6 +749,13 @@ static Eina_Bool __drawing_timer_cb(void *data)
 	return ECORE_CALLBACK_CANCEL;
 }
 
+static Eina_Bool __close_timer_cb(void *data)
+{
+	_D();
+	elm_exit();
+	return ECORE_CALLBACK_CANCEL;
+}
+
 static Eina_Bool __sync_timer_cb(void *data)
 {
 	_D();
@@ -749,7 +772,7 @@ static Eina_Bool __sync_timer_cb(void *data)
 	return ECORE_CALLBACK_RENEW;
 }
 
-static void __idle_clock_digital_service(service_h service, void *data)
+static void __idle_clock_digital_app_control(app_control_h app_control, void *data)
 {
 	_D();
 	appdata *ad = data;
@@ -757,21 +780,36 @@ static void __idle_clock_digital_service(service_h service, void *data)
 	char *op = NULL;
 	char *result_data = NULL;
 
-	service_get_operation(service, &op);
+	app_control_get_operation(app_control, &op);
 
 	if(op != NULL) {
 		_D("operation:%s", op);
 		if(strcmp(op, "http://tizen.org/appcontrol/operation/remote_settings") == 0) {
-			service_get_extra_data(service, "http://tizen.org/appcontrol/data/result_xml", &result_data);
+			app_control_get_extra_data(app_control, "http://tizen.org/appcontrol/data/result_xml", &result_data);
 			if(result_data) {
 				_D("Result:%s", result_data);
 				idle_clock_digital_parse_result_data(result_data);
 				idle_clock_digital_set_result_data(ad);
 				idle_clock_digital_update_view(ad);
 				free(result_data);
+
+				if (ad->win_type == BUFFER_TYPE_MINICONTROL && ad->win) {
+					display_change_state(LCD_NORMAL);
+				} else {
+					_D("app will be closed");
+					if(close_timer != NULL) {
+						ecore_timer_del(close_timer);
+						close_timer = NULL;
+					}
+					close_timer = ecore_timer_add(3.0, __close_timer_cb, NULL);
+				}
 			}
 		}
 		else if(strcmp(op, "http://tizen.org/appcontrol/operation/main") == 0) {
+			if(close_timer != NULL) {
+				ecore_timer_del(close_timer);
+				close_timer = NULL;
+			}
 			if(drawing_state) {
 				if (sync_timer != NULL) {
 					ecore_timer_del(sync_timer);
@@ -785,7 +823,13 @@ static void __idle_clock_digital_service(service_h service, void *data)
 			}
 		}
 		else if(strcmp(op, "http://tizen.org/appcontrol/operation/clock/capture") == 0) {
-			service_clone(&ad->service, service);
+			app_control_clone(&ad->app_control, app_control);
+
+			if(close_timer != NULL) {
+				ecore_timer_del(close_timer);
+				close_timer = NULL;
+			}
+
 			__update_bg_info();
 			__create_window(data, BUFFER_TYPE_OFFSCREEN);
 
@@ -836,7 +880,7 @@ int main(int argc, char *argv[])
 	event_callback.terminate = __idle_clock_digital_terminate;
 	event_callback.pause = __idle_clock_digital_pause;
 	event_callback.resume = __idle_clock_digital_resume;
-	event_callback.service = __idle_clock_digital_service;
+	event_callback.app_control = __idle_clock_digital_app_control;
 	event_callback.low_memory = NULL;
 	event_callback.low_battery = NULL;
 	event_callback.device_orientation = NULL;

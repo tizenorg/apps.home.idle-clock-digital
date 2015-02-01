@@ -1,9 +1,9 @@
 Name:	org.tizen.idle-clock-digital
 Summary:	idle-clock-digital application (EFL)
-Version:	0.1.45
+Version:	0.1.49
 Release:	0
 Group:	TO_BE/FILLED_IN
-License:	Flora Software License
+License:	Apache-2.0
 Source0:	%{name}-%{version}.tar.gz
 BuildRequires:  pkgconfig(appcore-efl)
 BuildRequires:  pkgconfig(ecore-x)
@@ -20,7 +20,6 @@ BuildRequires:  edje-bin
 BuildRequires:  embryo-bin
 BuildRequires:  gettext-devel
 BuildRequires:	hash-signer
-
 
 %ifarch %{arm}
 %define ARCH arm
@@ -45,22 +44,22 @@ export FFLAGS="$FFLAGS -DTIZEN_DEBUG_ENABLE"
 RPM_OPT=`echo $CFLAGS|sed 's/-Wp,-D_FORTIFY_SOURCE=2//'`
 export CFLAGS=$RPM_OPT
 
-cmake  -DCMAKE_INSTALL_PREFIX="%{PREFIX}" -DARCH=%{ARCH}
+cmake  -DCMAKE_INSTALL_PREFIX="%{PREFIX}" -DARCH="%{ARCH}" \
+    -DENABLE_DIGITAL_OPERATOR_GEAR3=YES \
 
 make %{?jobs:-j%jobs}
 
 %install
 rm -rf %{buildroot}
 %make_install
-mkdir -p %{buildroot}/usr/share/license
-cp LICENSE %{buildroot}/usr/share/license/%{name}
 %define tizen_sign 1
 %define tizen_sign_base /usr/apps/org.tizen.idle-clock-digital
-%define tizen_sign_level public
+%define tizen_sign_level platform
 %define tizen_author_sign 1
 %define tizen_dist_sign 1
 
 %post
+/usr/bin/signing-client/hash-signer-client.sh -a -d -p platform /usr/apps/org.tizen.idle-clock-digital
 GOPTION="-g 5000 -f"
 SOPTION="-s litewhome"
 
@@ -76,7 +75,7 @@ SOPTION="-s litewhome"
 %{PREFIX}/res/*
 #%{PREFIX}/data/*
 /etc/opt/upgrade/*
-/etc/smack/accesses2.d/org.tizen.idle-clock-digital.rule
+/etc/smack/accesses.d/org.tizen.idle-clock-digital.efl
 /usr/share/packages/org.tizen.idle-clock-digital.xml
 /usr/apps/org.tizen.idle-clock-digital/shared/res/icons/default/small/org.tizen.idle-clock-digital.png
-/usr/share/license/%{name}
+

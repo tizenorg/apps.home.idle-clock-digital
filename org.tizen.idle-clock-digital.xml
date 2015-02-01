@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns="http://tizen.org/ns/packages" package="org.tizen.idle-clock-digital" version="0.1.45" install-location="internal-only">
+<manifest xmlns="http://tizen.org/ns/packages" package="org.tizen.idle-clock-digital" version="0.1.49" install-location="internal-only">
 	<label>idle-clock-digital</label>
 	<author email="mh.ham@samsung.com" href="www.samsung.com">Myungho Ham</author>
 	<description>idle-clock-digital Application</description>
@@ -9,7 +9,7 @@
 		<privilege>http://tizen.org/privilege/application.launch</privilege>
 	</privileges>
 	<ui-application appid="org.tizen.idle-clock-digital" exec="/usr/apps/org.tizen.idle-clock-digital/bin/idle-clock-digital" nodisplay="true" multiple="false" type="capp" taskmanage="false">
-		<category name="com.samsung.wmanager.WATCH_CLOCK"></category>
+		<category name="org.tizen.wmanager.WATCH_CLOCK"></category>
 		<metadata key="clocktype" value="function"></metadata>
 		<icon>org.tizen.idle-clock-digital.png</icon>
 		<label>Digital clock</label>
@@ -98,5 +98,6 @@
 		<label xml:lang="zh-cn">数字时钟</label>
 		<label xml:lang="zh-hk">數字時鐘</label>
 		<label xml:lang="zh-tw">數位時鐘</label>
+		<label xml:lang="mn-mn">Дижитал цаг</label>
 	</ui-application>
 </manifest>

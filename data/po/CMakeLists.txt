@@ -74,6 +74,7 @@ SET(POFILES
 	zh_CN.po
 	zh_HK.po
 	zh_TW.po
+	mn_MN.po
 )
 
 

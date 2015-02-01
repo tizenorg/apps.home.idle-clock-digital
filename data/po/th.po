@@ -14,10 +14,10 @@ msgid "IDS_WMGR_OPT_DEFAULT_M_FONT"
 msgstr "ค่าเริ่มต้น"
 
 msgid "IDS_WMGR_OPT_DYNAMIC_M_FONT"
-msgstr "ไดนามิค"
+msgstr "Dynamic"
 
 msgid "IDS_WMGR_OPT_LIGHT_M_FONT"
-msgstr "แสง"
+msgstr "Light"
 
 msgid "IDS_WMGR_HEADER_DIGITAL_CLOCK"
 msgstr "นาฬิกาดิจิตอล"

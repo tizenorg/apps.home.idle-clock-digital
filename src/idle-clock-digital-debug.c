@@ -1,17 +1,19 @@
 /*
- * Copyright 2012  Samsung Electronics Co., Ltd
  *
- * Licensed under the Flora License, Version 1.0 (the License);
+ * Copyright (c) 2000 - 2015 Samsung Electronics Co., Ltd. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *     http://www.tizenopensource.org/license
+ * http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an AS IS BASIS,
+ * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
  */
 
 #include <stdio.h>
@@ -23,17 +25,17 @@
 
 void assert_screen(const char* tag_name, const char* file, int line, const char* func,  const char *expr, const char *fmt, ...)
 {
-    service_h service;
+    app_control_h app_control;
     va_list ap;
     char pid_buffer[16] = {0};
     char result_buffer[256] = {0};
     char line_buffer[16] = {0};
 
-    service_create(&service);
-    service_set_package(service, "org.tizen.assert-scr");
+    app_control_create(&app_control);
+    app_control_set_app_id(app_control, "org.tizen.assert-scr");
     snprintf(pid_buffer, sizeof(pid_buffer), "%d", getpid());
-    service_add_extra_data(service, "pid", pid_buffer);
-    service_add_extra_data(service, "appname", tag_name);
+    app_control_add_extra_data(app_control, "pid", pid_buffer);
+    app_control_add_extra_data(app_control, "appname", tag_name);
     if(fmt == NULL)
     {
         snprintf(result_buffer, sizeof(result_buffer), "%s", expr);
@@ -47,11 +49,11 @@ void assert_screen(const char* tag_name, const char* file, int line, const char*
         va_end(ap);
         snprintf(result_buffer, sizeof(result_buffer), "(%s) %s", expr, arg_buffer);
     }
-    service_add_extra_data(service, "assert_str", result_buffer);
-    service_add_extra_data(service, "filename", file);
+    app_control_add_extra_data(app_control, "assert_str", result_buffer);
+    app_control_add_extra_data(app_control, "filename", file);
     snprintf(line_buffer, sizeof(line_buffer), "%d", line);
-    service_add_extra_data(service, "line", line_buffer);
-    service_add_extra_data(service, "funcname", func);
-    service_send_launch_request(service, NULL,NULL );
-    service_destroy(service);
+    app_control_add_extra_data(app_control, "line", line_buffer);
+    app_control_add_extra_data(app_control, "funcname", func);
+    app_control_send_launch_request(app_control, NULL,NULL );
+    app_control_destroy(app_control);
 }

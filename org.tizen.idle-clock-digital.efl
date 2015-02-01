@@ -1,0 +1,25 @@
+org.tizen.idle-clock-digital device::app_logging rw----
+org.tizen.idle-clock-digital net-config rwx---
+org.tizen.idle-clock-digital xorg rwx---
+org.tizen.idle-clock-digital sound_server rwx---
+org.tizen.idle-clock-digital syspopup::db rwx---
+org.tizen.idle-clock-digital ail::db rwx---
+org.tizen.idle-clock-digital connman rwx---
+org.tizen.idle-clock-digital system rwx---
+org.tizen.idle-clock-digital immvibed rwx---
+org.tizen.idle-clock-digital svi-data rwx---
+org.tizen.idle-clock-digital e17 rwx---
+org.tizen.idle-clock-digital deviced rwx---
+org.tizen.idle-clock-digital deviced::display rwx---
+org.tizen.idle-clock-digital aul::launch rwx---
+root org.tizen.idle-clock-digital rw----
+_default_ org.tizen.idle-clock-digital rw----
+org.tizen.idle-clock-digital org.tizen.setting:system r----l
+org.tizen.idle-clock-digital org.tizen.message rw----
+org.tizen.idle-clock-digital org.tizen.add-viewer r-x---
+org.tizen.idle-clock-digital org.tizen.setting:default-resources r-x---
+org.tizen.idle-clock-digital org.tizen.setting rwx---
+system org.tizen.idle-clock-digital -w----
+dbus org.tizen.idle-clock-digital rwx---
+aul org.tizen.idle-clock-digital r-x---
+org.tizen.w-home org.tizen.idle-clock-digital rwx--- ------

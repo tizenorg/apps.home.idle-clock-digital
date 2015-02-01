@@ -1,17 +1,19 @@
 /*
- * Copyright 2012  Samsung Electronics Co., Ltd
  *
- * Licensed under the Flora License, Version 1.0 (the License);
+ * Copyright (c) 2000 - 2015 Samsung Electronics Co., Ltd. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *     http://www.tizenopensource.org/license
+ * http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an AS IS BASIS,
+ * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
  */
 
 #include <app.h>
@@ -91,7 +93,7 @@ static char font_color_list[][7] = { "000000", "CEFF00", "FF6519", "BCFFFB", "F0
 #define DIGITAL_VCONF_CLOCK_FONT_COLOR	"db/idle-clock/digital/clock_font_color"
 
 #define FONT_DEFAULT_FAMILY_NAME "SamsungSansNum3L"
-#define FONT_DEFAULT_SIZE 106
+#define FONT_DEFAULT_SIZE 96
 
 #define FONT_LIGHT_FAMILY_NAME "GalaxyGear_2_1"
 #define FONT_LIGHT_SIZE 116
@@ -392,7 +394,8 @@ static UDateFormat *__get_time_formatter(void *data)
 
 	if(a_best_pattern_fixed) {
 		/* exception - da_DK */
-		if(strncmp(ad->timeregion_format, "da_DK", 5) == 0){
+		if(strncmp(ad->timeregion_format, "da_DK", 5) == 0
+		|| strncmp(ad->timeregion_format, "mr_IN", 5) == 0){
 
 			char *a_best_pattern_changed = g_strndup("h:mm", 4);
 			_D("best pattern is changed [%s]", a_best_pattern_changed);
@@ -469,7 +472,8 @@ static UDateFormat *__get_time_formatter_24(void *data)
 		/* exception - pt_BR(HH'h'mm), id_ID, da_DK */
 		if(strncmp(a_best_pattern_fixed, "HH'h'mm", 7) == 0
 			|| strncmp(ad->timeregion_format, "id_ID", 5) == 0
-			|| strncmp(ad->timeregion_format, "da_DK", 5) == 0){
+			|| strncmp(ad->timeregion_format, "da_DK", 5) == 0
+			|| strncmp(ad->timeregion_format, "mr_IN", 5) == 0){
 
 			char *a_best_pattern_changed = g_strndup("HH:mm", 5);
 			_D("best pattern is changed [%s]", a_best_pattern_changed);
@@ -525,6 +529,15 @@ static UDateFormat *__get_date_formatter(void *data)
 	if(U_FAILURE(status)) {
 		_E("udatpg_getBestPattern() failed");
 		return NULL;
+	}
+
+	if(strncmp(ad->timeregion_format, "fi_FI", 5) == 0) {
+		char *a_best_pattern_changed = g_strndup("ccc, d. MMM", 11);
+		_D("date formatter best pattern is changed [%s]", a_best_pattern_changed);
+		if(a_best_pattern_changed) {
+			u_uastrcpy(u_best_pattern, a_best_pattern_changed);
+			g_free(a_best_pattern_changed);
+		}
 	}
 
 	/* get formatter */
@@ -833,19 +846,13 @@ Eina_Bool __set_info_time(void *data)
 
 #ifdef EMULATOR_TYPE
 	__get_formatted_date_from_utc_time(ad, tt, utc_date, sizeof(utc_date));
-	elm_object_part_text_set(ad->ly_main, "emulator_text_date", utc_date);
-	snprintf(font_buf, sizeof(font_buf)-1, "%s_%d", "show,emulator_text_date", clock_font_color);
-	elm_object_signal_emit(ad->ly_main, font_buf, "source_emulator_text_date");
+	elm_object_part_text_set(ad->ly_main, "default_text_date", utc_date);
+	snprintf(font_buf, sizeof(font_buf)-1, "%s_%d", "show,default_text_date", clock_font_color);
+	elm_object_signal_emit(ad->ly_main, font_buf, "source_default_text_date");
 #else
 	if(showdate) {
 		__get_formatted_date_from_utc_time(ad, tt, utc_date, sizeof(utc_date));
-		if(ad->clock_font == 1) {
-			elm_object_part_text_set(ad->ly_main, "default_text_date", utc_date);
-		} else if(clock_font == 2) {
-			elm_object_part_text_set(ad->ly_main, "light_text_date", utc_date);
-		} else if(clock_font == 3) {
-			elm_object_part_text_set(ad->ly_main, "dynamic_text_date", utc_date);
-		}
+		elm_object_part_text_set(ad->ly_main, "default_text_date", utc_date);
 	}
 	_D();
 #endif
@@ -920,24 +927,22 @@ Eina_Bool __set_info_time(void *data)
 	}
 	_D("time_str=%s", time_str);
 
-#ifdef EMULATOR_TYPE
-	elm_object_part_text_set(ad->ly_main, "emulator_textblock_time", time_str);
-#else
+	elm_object_part_text_set(ad->ly_main, "textblock_time", time_str);
+
 	switch(clock_font) {
 		case 1:
-			elm_object_part_text_set(ad->ly_main, "textblock_time", time_str);
+			elm_object_signal_emit(ad->ly_main, "change,default", "source_textblock_time");
 			break;
 		case 2:
-			elm_object_part_text_set(ad->ly_main, "light_textblock_time", time_str);
+			elm_object_signal_emit(ad->ly_main, "change,light", "source_textblock_time");
 			break;
 		case 3:
-			elm_object_part_text_set(ad->ly_main, "dynamic_textblock_time", time_str);
+			elm_object_signal_emit(ad->ly_main, "change,dynamic", "source_textblock_time");
 			break;
 		default:
-			elm_object_part_text_set(ad->ly_main, "textblock_time", time_str);
+			elm_object_signal_emit(ad->ly_main, "change,default", "source_textblock_time");
 			break;
 	}
-#endif
 
 	g_free(time_str);
 
@@ -1097,52 +1102,22 @@ static void __clock_font_changed_cb(keynode_t *node, void *data)
 
 	if(showdate) {
 		if(clock_font == 1) {
-			elm_object_signal_emit(ad->ly_main, "hide,light_text_date", "source_light_text_date");
-			elm_object_signal_emit(ad->ly_main, "hide,dynamic_text_date", "source_dynamic_text_date");
 			snprintf(font_buf, sizeof(font_buf)-1, "%s_%d", "show,default_text_date", clock_font_color);
 			elm_object_signal_emit(ad->ly_main, font_buf, "source_default_text_date");
-
-			elm_object_signal_emit(ad->ly_main, "hide,light_time", "source_light_time");
-			elm_object_signal_emit(ad->ly_main, "hide,dynamic_time", "source_dynamic_time");
-			elm_object_signal_emit(ad->ly_main, "change,yes_date", "source_textblock_time");
+			elm_object_signal_emit(ad->ly_main, "change,default", "source_textblock_time");
 		} else if(clock_font == 2) {
-			elm_object_signal_emit(ad->ly_main, "hide,text_date", "source_text_date");
-			elm_object_signal_emit(ad->ly_main, "hide,dynamic_text_date", "source_dynamic_text_date");
 			snprintf(font_buf, sizeof(font_buf)-1, "%s_%d", "show,light_text_date", clock_font_color);
 			elm_object_signal_emit(ad->ly_main, font_buf, "source_light_text_date");
-
-			elm_object_signal_emit(ad->ly_main, "hide,dynamic_time", "source_dynamic_time");
-			elm_object_signal_emit(ad->ly_main, "hide,default_time", "source_default_time");
-			elm_object_signal_emit(ad->ly_main, "change,yes_date_light", "source_light_textblock_time");
+			elm_object_signal_emit(ad->ly_main, "change,light", "source_textblock_time");
 		} else if(clock_font == 3) {
-			elm_object_signal_emit(ad->ly_main, "hide,text_date", "source_text_date");
-			elm_object_signal_emit(ad->ly_main, "hide,light_text_date", "source_light_text_date");
 			snprintf(font_buf, sizeof(font_buf)-1, "%s_%d", "show,dynamic_text_date", clock_font_color);
 			elm_object_signal_emit(ad->ly_main, font_buf, "source_dynamic_text_date");
-
-			elm_object_signal_emit(ad->ly_main, "hide,light_time", "source_light_time");
-			elm_object_signal_emit(ad->ly_main, "hide,default_time", "source_default_time");
-			elm_object_signal_emit(ad->ly_main, "change,yes_date_dynamic", "source_dynamic_textblock_time");
+			elm_object_signal_emit(ad->ly_main, "change,dynamic", "source_textblock_time");
 		}
 	}
 	else {
 		elm_object_signal_emit(ad->ly_main, "hide,text_date", "source_text_date");
-		elm_object_signal_emit(ad->ly_main, "hide,light_text_date", "source_light_text_date");
-		elm_object_signal_emit(ad->ly_main, "hide,dynamic_text_date", "source_dynamic_text_date");
-
-		if(clock_font == 1) {
-			elm_object_signal_emit(ad->ly_main, "hide,light_time", "source_light_time");
-			elm_object_signal_emit(ad->ly_main, "hide,dynamic_time", "source_dynamic_time");
-			elm_object_signal_emit(ad->ly_main, "change,no_date", "source_textblock_time");
-		} else if(clock_font == 2) {
-			elm_object_signal_emit(ad->ly_main, "hide,dynamic_time", "source_dynamic_time");
-			elm_object_signal_emit(ad->ly_main, "hide,default_time", "source_default_time");
-			elm_object_signal_emit(ad->ly_main, "change,light_no_date", "source_light_textblock_time");
-		} else if(clock_font == 3) {
-			elm_object_signal_emit(ad->ly_main, "hide,light_time", "source_light_time");
-			elm_object_signal_emit(ad->ly_main, "hide,default_time", "source_default_time");
-			elm_object_signal_emit(ad->ly_main, "change,dynamic_no_date", "source_dynamic_textblock_time");
-		}
+		elm_object_signal_emit(ad->ly_main, "change,no_data", "source_textblock_time");
 	}
 
 	if(node != NULL) {
@@ -1185,7 +1160,7 @@ static void __pm_changed_cb(keynode_t *node, void *data)
 		ad->timer = ecore_timer_add(60 - ts->tm_sec, __set_info_time, ad);
 	}
 	else if(val == VCONFKEY_PM_STATE_LCDOFF) {
-		__clear_time(data);
+		//__clear_time(data);	//Disable this code for transit to alpm clock
 	}
 	else
 		_D("Not interested PM STATE");
@@ -1428,6 +1403,7 @@ bool idle_clock_digital_create_view_main(void *data)
 
 	/* create main layout */
 	Evas_Object *ly_main = NULL;
+
 	ly_main = __add_layout(ad->win, EDJ_APP, "layout_clock_digital");
 	retvm_if(ly_main == NULL, -1, "Failed to add main layout\n");
 	evas_object_size_hint_weight_set(ly_main, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
@@ -1440,7 +1416,7 @@ bool idle_clock_digital_create_view_main(void *data)
 	ecore_evas_callback_msg_parent_handle_set(ee, _ecore_evas_msg_parent_handle);
 
 
-	evas_object_resize(ly_main, WIN_SIZE, WIN_SIZE);
+	evas_object_resize(ly_main, WIN_SIZE_W, WIN_SIZE_H);
 	evas_object_show(ly_main);
 
 	idle_clock_digital_register_lcd_onoff(ad);
