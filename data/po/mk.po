@@ -1,0 +1,27 @@
+msgid "IDS_WMGR_MBODY_CLOCK_FONT_COLOUR"
+msgstr "Боја на фонт за часовник"
+
+msgid "IDS_CLOCK_MBODY_CLOCK_FONT"
+msgstr "Фонт на часовникот"
+
+msgid "IDS_WMGR_MBODY_SHOW_BATTERY_ICON"
+msgstr "Прик. икона на батерија"
+
+msgid "IDS_WMGR_MBODY_SHOW_BLUETOOTH_ICON"
+msgstr "Прик. икона на Bluetooth"
+
+msgid "IDS_WMGR_OPT_DEFAULT_M_FONT"
+msgstr "Основно"
+
+msgid "IDS_WMGR_OPT_DYNAMIC_M_FONT"
+msgstr "Динамично"
+
+msgid "IDS_WMGR_OPT_LIGHT_M_FONT"
+msgstr "Светло"
+
+msgid "IDS_WMGR_HEADER_DIGITAL_CLOCK"
+msgstr "Дигитален часовник"
+
+msgid "IDS_WMGR_MBODY_SHOW_DATE"
+msgstr "Покажи датум"
+

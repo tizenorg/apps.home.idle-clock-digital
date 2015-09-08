@@ -1,0 +1,27 @@
+msgid "IDS_WMGR_MBODY_CLOCK_FONT_COLOUR"
+msgstr "Culoare font ceas"
+
+msgid "IDS_CLOCK_MBODY_CLOCK_FONT"
+msgstr "Font ceas"
+
+msgid "IDS_WMGR_MBODY_SHOW_BATTERY_ICON"
+msgstr "Afişare pictogr. baterie"
+
+msgid "IDS_WMGR_MBODY_SHOW_BLUETOOTH_ICON"
+msgstr "Afiş. pictogr. Bluetooth"
+
+msgid "IDS_WMGR_OPT_DEFAULT_M_FONT"
+msgstr "Implicit"
+
+msgid "IDS_WMGR_OPT_DYNAMIC_M_FONT"
+msgstr "Dinamic"
+
+msgid "IDS_WMGR_OPT_LIGHT_M_FONT"
+msgstr "Deschis"
+
+msgid "IDS_WMGR_HEADER_DIGITAL_CLOCK"
+msgstr "Ceas digital"
+
+msgid "IDS_WMGR_MBODY_SHOW_DATE"
+msgstr "Afişare dată"
+

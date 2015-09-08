@@ -1,0 +1,27 @@
+msgid "IDS_WMGR_MBODY_CLOCK_FONT_COLOUR"
+msgstr "时钟字体颜色"
+
+msgid "IDS_CLOCK_MBODY_CLOCK_FONT"
+msgstr "时钟字体"
+
+msgid "IDS_WMGR_MBODY_SHOW_BATTERY_ICON"
+msgstr "显示电池图标"
+
+msgid "IDS_WMGR_MBODY_SHOW_BLUETOOTH_ICON"
+msgstr "显示蓝牙图标"
+
+msgid "IDS_WMGR_OPT_DEFAULT_M_FONT"
+msgstr "默认"
+
+msgid "IDS_WMGR_OPT_DYNAMIC_M_FONT"
+msgstr "动态"
+
+msgid "IDS_WMGR_OPT_LIGHT_M_FONT"
+msgstr "闪光"
+
+msgid "IDS_WMGR_HEADER_DIGITAL_CLOCK"
+msgstr "数字时钟"
+
+msgid "IDS_WMGR_MBODY_SHOW_DATE"
+msgstr "显示日期"
+

@@ -1,0 +1,27 @@
+msgid "IDS_WMGR_MBODY_CLOCK_FONT_COLOUR"
+msgstr "Kolor czcionki zegara"
+
+msgid "IDS_CLOCK_MBODY_CLOCK_FONT"
+msgstr "Czcionka zegara"
+
+msgid "IDS_WMGR_MBODY_SHOW_BATTERY_ICON"
+msgstr "Pokaż ikonę baterii"
+
+msgid "IDS_WMGR_MBODY_SHOW_BLUETOOTH_ICON"
+msgstr "Pokaż ikonę Bluetooth"
+
+msgid "IDS_WMGR_OPT_DEFAULT_M_FONT"
+msgstr "Domyślna"
+
+msgid "IDS_WMGR_OPT_DYNAMIC_M_FONT"
+msgstr "Dynamiczna"
+
+msgid "IDS_WMGR_OPT_LIGHT_M_FONT"
+msgstr "Cienka"
+
+msgid "IDS_WMGR_HEADER_DIGITAL_CLOCK"
+msgstr "Zegar cyfrowy"
+
+msgid "IDS_WMGR_MBODY_SHOW_DATE"
+msgstr "Pokaż datę"
+

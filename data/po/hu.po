@@ -1,0 +1,27 @@
+msgid "IDS_WMGR_MBODY_CLOCK_FONT_COLOUR"
+msgstr "Óra betűszíne"
+
+msgid "IDS_CLOCK_MBODY_CLOCK_FONT"
+msgstr "Óra betűtípusa"
+
+msgid "IDS_WMGR_MBODY_SHOW_BATTERY_ICON"
+msgstr "Akkumulátorikon megjelen."
+
+msgid "IDS_WMGR_MBODY_SHOW_BLUETOOTH_ICON"
+msgstr "Bluetooth-ikon megjelen."
+
+msgid "IDS_WMGR_OPT_DEFAULT_M_FONT"
+msgstr "Alapértelmezett"
+
+msgid "IDS_WMGR_OPT_DYNAMIC_M_FONT"
+msgstr "Dinamikus"
+
+msgid "IDS_WMGR_OPT_LIGHT_M_FONT"
+msgstr "Világos"
+
+msgid "IDS_WMGR_HEADER_DIGITAL_CLOCK"
+msgstr "Digitális óra"
+
+msgid "IDS_WMGR_MBODY_SHOW_DATE"
+msgstr "Dátum megjelenítése"
+

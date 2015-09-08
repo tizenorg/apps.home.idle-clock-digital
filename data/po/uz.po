@@ -1,0 +1,27 @@
+msgid "IDS_WMGR_MBODY_CLOCK_FONT_COLOUR"
+msgstr "Soat shrifti rangi"
+
+msgid "IDS_CLOCK_MBODY_CLOCK_FONT"
+msgstr "Soat shrifti"
+
+msgid "IDS_WMGR_MBODY_SHOW_BATTERY_ICON"
+msgstr "Batareya ikon-ni ko‘rsat"
+
+msgid "IDS_WMGR_MBODY_SHOW_BLUETOOTH_ICON"
+msgstr "Bluetooth ikon-ni ko‘rsat"
+
+msgid "IDS_WMGR_OPT_DEFAULT_M_FONT"
+msgstr "Birlamchi"
+
+msgid "IDS_WMGR_OPT_DYNAMIC_M_FONT"
+msgstr "Dinamik"
+
+msgid "IDS_WMGR_OPT_LIGHT_M_FONT"
+msgstr "Chiroq"
+
+msgid "IDS_WMGR_HEADER_DIGITAL_CLOCK"
+msgstr "Raqamli soat"
+
+msgid "IDS_WMGR_MBODY_SHOW_DATE"
+msgstr "Sanani ko‘rsatish"
+

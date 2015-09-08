@@ -1,0 +1,27 @@
+msgid "IDS_WMGR_MBODY_CLOCK_FONT_COLOUR"
+msgstr "ಗಡಿಯಾರ ಫಾಂಟ್ ಬಣ್ಣ"
+
+msgid "IDS_CLOCK_MBODY_CLOCK_FONT"
+msgstr "ಗಡಿಯಾರ ಫಾಂಟ್"
+
+msgid "IDS_WMGR_MBODY_SHOW_BATTERY_ICON"
+msgstr "ಬ್ಯಾಟರಿ ಐಕನ್ ತೋರಿಸು"
+
+msgid "IDS_WMGR_MBODY_SHOW_BLUETOOTH_ICON"
+msgstr "ಬ್ಲೂಟೂತ್ ಐಕನ್ ತೋರಿಸು"
+
+msgid "IDS_WMGR_OPT_DEFAULT_M_FONT"
+msgstr "ಡೀಫಾಲ್ಟ್"
+
+msgid "IDS_WMGR_OPT_DYNAMIC_M_FONT"
+msgstr "ಚೈತನ್ಯಶೀಲ"
+
+msgid "IDS_WMGR_OPT_LIGHT_M_FONT"
+msgstr "ಬೆಳಕು"
+
+msgid "IDS_WMGR_HEADER_DIGITAL_CLOCK"
+msgstr "ಡಿಜಿಟಲ್ ಗಡಿಯಾರ"
+
+msgid "IDS_WMGR_MBODY_SHOW_DATE"
+msgstr "ದಿನಾಂಕ ತೋರಿಸಿ"
+

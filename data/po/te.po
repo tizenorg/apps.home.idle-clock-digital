@@ -1,0 +1,27 @@
+msgid "IDS_WMGR_MBODY_CLOCK_FONT_COLOUR"
+msgstr "గడియారం ముందు భాగం రంగు"
+
+msgid "IDS_CLOCK_MBODY_CLOCK_FONT"
+msgstr "రంగు ఫాంట్"
+
+msgid "IDS_WMGR_MBODY_SHOW_BATTERY_ICON"
+msgstr "బ్యాటరీ చిహ్నాన్ని చూపు"
+
+msgid "IDS_WMGR_MBODY_SHOW_BLUETOOTH_ICON"
+msgstr "బ్లూటూత్ చిహ్నాన్ని చూపు"
+
+msgid "IDS_WMGR_OPT_DEFAULT_M_FONT"
+msgstr "డిఫాల్ట్"
+
+msgid "IDS_WMGR_OPT_DYNAMIC_M_FONT"
+msgstr "డైనమిక్"
+
+msgid "IDS_WMGR_OPT_LIGHT_M_FONT"
+msgstr "తక్కువ"
+
+msgid "IDS_WMGR_HEADER_DIGITAL_CLOCK"
+msgstr "డిజిటల్ గడియారం"
+
+msgid "IDS_WMGR_MBODY_SHOW_DATE"
+msgstr "తేదీ చూపు"
+

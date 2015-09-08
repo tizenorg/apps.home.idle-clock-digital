@@ -1,0 +1,27 @@
+msgid "IDS_WMGR_MBODY_CLOCK_FONT_COLOUR"
+msgstr "Warna fon jam"
+
+msgid "IDS_CLOCK_MBODY_CLOCK_FONT"
+msgstr "Fon jam"
+
+msgid "IDS_WMGR_MBODY_SHOW_BATTERY_ICON"
+msgstr "Tunjukkan ikon bateri"
+
+msgid "IDS_WMGR_MBODY_SHOW_BLUETOOTH_ICON"
+msgstr "Tunjukkan ikon Bluetooth"
+
+msgid "IDS_WMGR_OPT_DEFAULT_M_FONT"
+msgstr "Lalai"
+
+msgid "IDS_WMGR_OPT_DYNAMIC_M_FONT"
+msgstr "Dinamik"
+
+msgid "IDS_WMGR_OPT_LIGHT_M_FONT"
+msgstr "Cahaya"
+
+msgid "IDS_WMGR_HEADER_DIGITAL_CLOCK"
+msgstr "Jam digital"
+
+msgid "IDS_WMGR_MBODY_SHOW_DATE"
+msgstr "Lihat tarikh"
+

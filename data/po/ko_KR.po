@@ -1,0 +1,27 @@
+msgid "IDS_WMGR_MBODY_CLOCK_FONT_COLOUR"
+msgstr "시계 글자 색상"
+
+msgid "IDS_CLOCK_MBODY_CLOCK_FONT"
+msgstr "시계 서체"
+
+msgid "IDS_WMGR_MBODY_SHOW_BATTERY_ICON"
+msgstr "배터리 아이콘 표시"
+
+msgid "IDS_WMGR_MBODY_SHOW_BLUETOOTH_ICON"
+msgstr "블루투스 아이콘 표시"
+
+msgid "IDS_WMGR_OPT_DEFAULT_M_FONT"
+msgstr "기본"
+
+msgid "IDS_WMGR_OPT_DYNAMIC_M_FONT"
+msgstr "다이내믹"
+
+msgid "IDS_WMGR_OPT_LIGHT_M_FONT"
+msgstr "가늘게"
+
+msgid "IDS_WMGR_HEADER_DIGITAL_CLOCK"
+msgstr "디지털 시계"
+
+msgid "IDS_WMGR_MBODY_SHOW_DATE"
+msgstr "날짜 표시"
+

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns="http://tizen.org/ns/packages" package="org.tizen.idle-clock-digital" version="0.1.49" install-location="internal-only" api-version="2.3.1">
+	<label>idle-clock-digital</label>
+	<author email="mh.ham@samsung.com" href="www.samsung.com">Myungho Ham</author>
+	<description>idle-clock-digital Application</description>
+	<privileges>
+		<privilege>http://tizen.org/privilege/systeminfo</privilege>
+		<privilege>http://tizen.org/privilege/power</privilege>
+		<privilege>http://tizen.org/privilege/application.launch</privilege>
+	</privileges>
+	<ui-application appid="org.tizen.idle-clock-digital" exec="/usr/apps/org.tizen.idle-clock-digital/bin/idle-clock-digital" nodisplay="true" multiple="false" type="capp" taskmanage="false">
+		<category name="org.tizen.wmanager.WATCH_CLOCK"></category>
+		<metadata key="clocktype" value="function"></metadata>
+		<icon>org.tizen.idle-clock-digital.png</icon>
+		<label>Digital clock</label>
+		<label xml:lang="ar-ae">ساعة رقمية</label>
+		<label xml:lang="ar-il">ساعة رقمية</label>
+		<label xml:lang="as-in">ডিজিটেল ঘড়ী</label>
+		<label xml:lang="az-az">Rəqəmsal saat</label>
+		<label xml:lang="bg-bg">Цифров часовник</label>
+		<label xml:lang="bn-in">ডিজিটাল ঘড়ি</label>
+		<label xml:lang="ca-es">Rellotge digital</label>
+		<label xml:lang="cs-cz">Digitální hodiny</label>
+		<label xml:lang="da-dk">Digitalur</label>
+		<label xml:lang="de-de">Digitale Uhr</label>
+		<label xml:lang="de-ch">Digitale Uhr</label>
+		<label xml:lang="de-at">Digitale Uhr</label>
+		<label xml:lang="el-gr">Ψηφιακό ρολόι</label>
+		<label xml:lang="en-gb">Digital clock</label>
+		<label xml:lang="en-au">Digital clock</label>
+		<label xml:lang="en-ca">Digital clock</label>
+		<label xml:lang="en-ie">Digital clock</label>
+		<label xml:lang="en-nz">Digital clock</label>
+		<label xml:lang="en-za">Digital clock</label>
+		<label xml:lang="en-ph">Digital clock</label>
+		<label xml:lang="en-us">Digital clock</label>
+		<label xml:lang="es-es">Reloj digital</label>
+		<label xml:lang="es-us">Reloj digital</label>
+		<label xml:lang="et-ee">Digitaalkell</label>
+		<label xml:lang="eu-es">Erloju digitala</label>
+		<label xml:lang="fa-ir">ساعت دیجیتال</label>
+		<label xml:lang="fi-fi">Digitaalinen kello</label>
+		<label xml:lang="fr-fr">Horloge numérique</label>
+		<label xml:lang="fr-be">Horloge numérique</label>
+		<label xml:lang="fr-ch">Horloge numérique</label>
+		<label xml:lang="fr-ca">Horloge numérique</label>
+		<label xml:lang="ga-ie">Clog digiteach</label>
+		<label xml:lang="gl-es">Reloxo dixital</label>
+		<label xml:lang="gu-in">ડિજિટલ ઘડિયાળ</label>
+		<label xml:lang="he-il">שעון דיגיטלי</label>
+		<label xml:lang="hi-in">डिजिटल घड़ी</label>
+		<label xml:lang="hr-hr">Digitalni sat</label>
+		<label xml:lang="hu-hu">Digitális óra</label>
+		<label xml:lang="hy-am">Թվային ժամացույց</label>
+		<label xml:lang="id-id">Jam digital</label>
+		<label xml:lang="is-is">Stafræn klukka</label>
+		<label xml:lang="it-it">Orologio digitale</label>
+		<label xml:lang="ja-jp">デジタル時計</label>
+		<label xml:lang="ka-ge">ციფრული საათი</label>
+		<label xml:lang="kk-kz">Электрондық сағат</label>
+		<label xml:lang="km-kh">នាឡិកា​លេខ</label>
+		<label xml:lang="kn-in">ಡಿಜಿಟಲ್ ಗಡಿಯಾರ</label>
+		<label xml:lang="ko-kr">디지털 시계</label>
+		<label xml:lang="lo-la">ໂມງດີຈິຕອລ</label>
+		<label xml:lang="lt-lt">Skaitmeninis laikrodis</label>
+		<label xml:lang="lv-lv">Digitālais pulkstenis</label>
+		<label xml:lang="mk-mk">Дигитален часовник</label>
+		<label xml:lang="ml-in">ഡിജിറ്റല്‍ ക്ലോക്ക്</label>
+		<label xml:lang="mr-in">डिजीटल घड्याळ</label>
+		<label xml:lang="ms-my">Jam digital</label>
+		<label xml:lang="my-mm">ဒီဂ်စ္တယ္ နာရီ</label>
+		<label xml:lang="nb-no">Digital klokke</label>
+		<label xml:lang="ne-np">डिजिटल घड़ी</label>
+		<label xml:lang="nl-nl">Digitale klok</label>
+		<label xml:lang="nl-be">Digitale klok</label>
+		<label xml:lang="or-in">ଡିଜିଟାଲ୍ ଘଡି</label>
+		<label xml:lang="pa-in">ਡਿਜੀਟਲ ਘੜੀ</label>
+		<label xml:lang="pl-pl">Zegar cyfrowy</label>
+		<label xml:lang="pt-br">Relógio digital</label>
+		<label xml:lang="pt-pt">Relógio digital</label>
+		<label xml:lang="ro-ro">Ceas digital</label>
+		<label xml:lang="ru-ru">Электронные часы</label>
+		<label xml:lang="si-lk">සංඛ්‍යාංක ඔරලෝසුව</label>
+		<label xml:lang="sk-sk">Digitálne hodiny</label>
+		<label xml:lang="sl-si">Digitalna ura</label>
+		<label xml:lang="sq-al">Ora numerike</label>
+		<label xml:lang="sr-rs">Digitalni sat</label>
+		<label xml:lang="sv-se">Digital klocka</label>
+		<label xml:lang="ta-in">டிஜிடல் கடிகாரம்</label>
+		<label xml:lang="te-in">డిజిటల్ గడియారం</label>
+		<label xml:lang="th-th">นาฬิกาดิจิตอล</label>
+		<label xml:lang="tl-ph">Digital na orasan</label>
+		<label xml:lang="tr-tr">Dijital Saat</label>
+		<label xml:lang="uk-ua">Цифровий годинник</label>
+		<label xml:lang="ur-pk">ڈيجیٹل گھڑی</label>
+		<label xml:lang="uz-uz">Raqamli soat</label>
+		<label xml:lang="vi-vn">Đồng hồ số</label>
+		<label xml:lang="zh-cn">数字时钟</label>
+		<label xml:lang="zh-hk">數字時鐘</label>
+		<label xml:lang="zh-tw">數位時鐘</label>
+		<label xml:lang="mn-mn">Дижитал цаг</label>
+	</ui-application>
+</manifest>

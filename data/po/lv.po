@@ -1,0 +1,27 @@
+msgid "IDS_WMGR_MBODY_CLOCK_FONT_COLOUR"
+msgstr "Pulksteņa fonta krāsa"
+
+msgid "IDS_CLOCK_MBODY_CLOCK_FONT"
+msgstr "Pulksteņa fonts"
+
+msgid "IDS_WMGR_MBODY_SHOW_BATTERY_ICON"
+msgstr "Parādīt akumulatora ikonu"
+
+msgid "IDS_WMGR_MBODY_SHOW_BLUETOOTH_ICON"
+msgstr "Parādīt Bluetooth ikonu"
+
+msgid "IDS_WMGR_OPT_DEFAULT_M_FONT"
+msgstr "Noklusējums"
+
+msgid "IDS_WMGR_OPT_DYNAMIC_M_FONT"
+msgstr "Dinamisks"
+
+msgid "IDS_WMGR_OPT_LIGHT_M_FONT"
+msgstr "Gaišs"
+
+msgid "IDS_WMGR_HEADER_DIGITAL_CLOCK"
+msgstr "Digitālais pulkstenis"
+
+msgid "IDS_WMGR_MBODY_SHOW_DATE"
+msgstr "Rādīt datumu"
+

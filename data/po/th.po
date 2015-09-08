@@ -1,0 +1,27 @@
+msgid "IDS_WMGR_MBODY_CLOCK_FONT_COLOUR"
+msgstr "สีแบบอักษรของนาฬิกา"
+
+msgid "IDS_CLOCK_MBODY_CLOCK_FONT"
+msgstr "แบบอักษรนาฬิกา"
+
+msgid "IDS_WMGR_MBODY_SHOW_BATTERY_ICON"
+msgstr "แสดงไอคอนแบตเตอรี่"
+
+msgid "IDS_WMGR_MBODY_SHOW_BLUETOOTH_ICON"
+msgstr "แสดงไอคอน Bluetooth"
+
+msgid "IDS_WMGR_OPT_DEFAULT_M_FONT"
+msgstr "ค่าเริ่มต้น"
+
+msgid "IDS_WMGR_OPT_DYNAMIC_M_FONT"
+msgstr "Dynamic"
+
+msgid "IDS_WMGR_OPT_LIGHT_M_FONT"
+msgstr "Light"
+
+msgid "IDS_WMGR_HEADER_DIGITAL_CLOCK"
+msgstr "นาฬิกาดิจิตอล"
+
+msgid "IDS_WMGR_MBODY_SHOW_DATE"
+msgstr "แสดงวันที่"
+

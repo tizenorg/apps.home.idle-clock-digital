@@ -1,0 +1,27 @@
+msgid "IDS_WMGR_MBODY_CLOCK_FONT_COLOUR"
+msgstr "Lettertypekleur klok"
+
+msgid "IDS_CLOCK_MBODY_CLOCK_FONT"
+msgstr "Lettertype klok"
+
+msgid "IDS_WMGR_MBODY_SHOW_BATTERY_ICON"
+msgstr "Batterijpictogr weergeven"
+
+msgid "IDS_WMGR_MBODY_SHOW_BLUETOOTH_ICON"
+msgstr "Bluetooth-pict. weergeven"
+
+msgid "IDS_WMGR_OPT_DEFAULT_M_FONT"
+msgstr "Standaard"
+
+msgid "IDS_WMGR_OPT_DYNAMIC_M_FONT"
+msgstr "Dynamisch"
+
+msgid "IDS_WMGR_OPT_LIGHT_M_FONT"
+msgstr "Licht"
+
+msgid "IDS_WMGR_HEADER_DIGITAL_CLOCK"
+msgstr "Digitale klok"
+
+msgid "IDS_WMGR_MBODY_SHOW_DATE"
+msgstr "Datum weergeven"
+

@@ -1,0 +1,27 @@
+msgid "IDS_WMGR_MBODY_CLOCK_FONT_COLOUR"
+msgstr "घडीको फन्टको रंग"
+
+msgid "IDS_CLOCK_MBODY_CLOCK_FONT"
+msgstr "घड़ी फन्ट"
+
+msgid "IDS_WMGR_MBODY_SHOW_BATTERY_ICON"
+msgstr "बैटरी प्रतिमा देखाउनुहोस्"
+
+msgid "IDS_WMGR_MBODY_SHOW_BLUETOOTH_ICON"
+msgstr "ब्लुटूथ प्रतिमा देखाउनुहोस्"
+
+msgid "IDS_WMGR_OPT_DEFAULT_M_FONT"
+msgstr "पूर्वनिर्धारित"
+
+msgid "IDS_WMGR_OPT_DYNAMIC_M_FONT"
+msgstr "गतिशील"
+
+msgid "IDS_WMGR_OPT_LIGHT_M_FONT"
+msgstr "प्रकाश"
+
+msgid "IDS_WMGR_HEADER_DIGITAL_CLOCK"
+msgstr "डिजिटल घड़ी"
+
+msgid "IDS_WMGR_MBODY_SHOW_DATE"
+msgstr "मिति देखाउनुहोस्"
+

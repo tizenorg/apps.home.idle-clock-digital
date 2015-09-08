@@ -1,0 +1,27 @@
+msgid "IDS_WMGR_MBODY_CLOCK_FONT_COLOUR"
+msgstr "Цагийн үсгийн өнгө"
+
+msgid "IDS_CLOCK_MBODY_CLOCK_FONT"
+msgstr "Цагийн үсгийн хэв"
+
+msgid "IDS_WMGR_MBODY_SHOW_BATTERY_ICON"
+msgstr "Зайн дүрс харуулах"
+
+msgid "IDS_WMGR_MBODY_SHOW_BLUETOOTH_ICON"
+msgstr "Bluetooth-ийн дүрс харуул"
+
+msgid "IDS_WMGR_OPT_DEFAULT_M_FONT"
+msgstr "Өгөгдмөл"
+
+msgid "IDS_WMGR_OPT_DYNAMIC_M_FONT"
+msgstr "Динамик"
+
+msgid "IDS_WMGR_OPT_LIGHT_M_FONT"
+msgstr "Хөнгөн"
+
+msgid "IDS_WMGR_HEADER_DIGITAL_CLOCK"
+msgstr "Дижитал цаг"
+
+msgid "IDS_WMGR_MBODY_SHOW_DATE"
+msgstr "Огноо харуулах"
+

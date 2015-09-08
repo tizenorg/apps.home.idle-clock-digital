@@ -1,0 +1,27 @@
+msgid "IDS_WMGR_MBODY_CLOCK_FONT_COLOUR"
+msgstr "ઘડિયાળના ફોન્ટનો રંગ"
+
+msgid "IDS_CLOCK_MBODY_CLOCK_FONT"
+msgstr "ઘડિયાળ અક્ષર"
+
+msgid "IDS_WMGR_MBODY_SHOW_BATTERY_ICON"
+msgstr "બેટરીનું ચિહ્ન બતાવો"
+
+msgid "IDS_WMGR_MBODY_SHOW_BLUETOOTH_ICON"
+msgstr "બ્લ્યુટુથનું ચિહ્ન બતાવો"
+
+msgid "IDS_WMGR_OPT_DEFAULT_M_FONT"
+msgstr "પૂર્વનિર્ધારીત"
+
+msgid "IDS_WMGR_OPT_DYNAMIC_M_FONT"
+msgstr "ડાયનામિક"
+
+msgid "IDS_WMGR_OPT_LIGHT_M_FONT"
+msgstr "પ્રકાશ"
+
+msgid "IDS_WMGR_HEADER_DIGITAL_CLOCK"
+msgstr "ડિજિટલ ઘડિયાળ"
+
+msgid "IDS_WMGR_MBODY_SHOW_DATE"
+msgstr "તારીખ બતાવો"
+

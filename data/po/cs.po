@@ -1,0 +1,27 @@
+msgid "IDS_WMGR_MBODY_CLOCK_FONT_COLOUR"
+msgstr "Barva písma hodin"
+
+msgid "IDS_CLOCK_MBODY_CLOCK_FONT"
+msgstr "Písmo hodin"
+
+msgid "IDS_WMGR_MBODY_SHOW_BATTERY_ICON"
+msgstr "Zobrazit ikonu baterie"
+
+msgid "IDS_WMGR_MBODY_SHOW_BLUETOOTH_ICON"
+msgstr "Zobrazit ikonu Bluetooth"
+
+msgid "IDS_WMGR_OPT_DEFAULT_M_FONT"
+msgstr "Výchozí"
+
+msgid "IDS_WMGR_OPT_DYNAMIC_M_FONT"
+msgstr "Dynamické"
+
+msgid "IDS_WMGR_OPT_LIGHT_M_FONT"
+msgstr "Světlé"
+
+msgid "IDS_WMGR_HEADER_DIGITAL_CLOCK"
+msgstr "Digitální hodiny"
+
+msgid "IDS_WMGR_MBODY_SHOW_DATE"
+msgstr "Zobrazit datum"
+

@@ -1,0 +1,27 @@
+msgid "IDS_WMGR_MBODY_CLOCK_FONT_COLOUR"
+msgstr "Erlojuko letra kolorea"
+
+msgid "IDS_CLOCK_MBODY_CLOCK_FONT"
+msgstr "Erloju letra mota"
+
+msgid "IDS_WMGR_MBODY_SHOW_BATTERY_ICON"
+msgstr "Erakutsi bateria ikonoa"
+
+msgid "IDS_WMGR_MBODY_SHOW_BLUETOOTH_ICON"
+msgstr "Erakutsi Bluetooth ikonoa"
+
+msgid "IDS_WMGR_OPT_DEFAULT_M_FONT"
+msgstr "Lehenetsia"
+
+msgid "IDS_WMGR_OPT_DYNAMIC_M_FONT"
+msgstr "Dinamikoa"
+
+msgid "IDS_WMGR_OPT_LIGHT_M_FONT"
+msgstr "Argia"
+
+msgid "IDS_WMGR_HEADER_DIGITAL_CLOCK"
+msgstr "Erloju digitala"
+
+msgid "IDS_WMGR_MBODY_SHOW_DATE"
+msgstr "Erakutsi data"
+

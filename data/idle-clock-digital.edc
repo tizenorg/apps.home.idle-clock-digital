@@ -1,0 +1,271 @@
+/*
+ *
+ * Copyright (c) 2000 - 2015 Samsung Electronics Co., Ltd. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+
+#define WIN_HEIGHT 360
+#define WIN_WIDTH 360
+
+#define PROGRAM_SHOW_DATE( TYPE, NUM ) \
+		program { \
+			signal: "show,"TYPE"_text_date_"NUM; \
+			source: "source_"TYPE"_text_date"; \
+			action: STATE_SET "text_date_"NUM 0.0; \
+			target: ""TYPE"_text_date"; \
+		}
+
+collections {
+
+	group {
+		name : "layout_clock_digital";
+
+		styles {
+			style {
+				name: "textblock_digit_style";
+				base: "font=Tizen:style=Bold font_size=80 color=#ffffff align=center style=shadow,bottom shadow_color=#00000088 text_class=idle_font";
+				tag:  "br" "\n";
+				tag:  "hilight" "+ font_weight=Bold";
+				tag:  "b" "+ font_weight=Bold";
+				tag:  "tab" "\t";
+			}
+		}
+		parts{
+			part {
+				name : "bg";
+				type : RECT;
+				scale: 1;
+				description {
+					state : "default" 0.0;
+					rel1 { relative: 0.0 0.0;}
+					rel2 { relative: 1.0 1.0;}
+					color : 0 0 0 0;
+				}
+			}
+
+			part {
+				name :"clipper";
+				type: RECT;
+				description {
+					state: "default" 0.0;
+					color: 255 255 255 255 ;
+				}
+				description {
+					state: "hide" 0.0;
+					color: 0 0 0 0 ;
+				}
+			}
+
+			part {
+				name: "textblock_time";
+				type: TEXTBLOCK;
+				effect: SHADOW BOTTOM;
+				scale: 1;
+				clip_to: "clipper";
+				description {
+					state: "default" 0.0;
+					rel1 { relative: 0.0 0.5; to: "bg"; offset: 0 -30; }
+					rel2 { relative: 1.0 0.5; to: "bg"; offset: 0 -30; }
+					visible: 1;
+					color: 255 255 255 255;
+					align: 0.5 0.5;
+					text{
+						text: "";
+						style: "textblock_digit_style";
+						text_class: "idle_font";
+						min: 0 1;
+						align: 0.5 0.5;
+					}
+				}
+				description{
+					state: "no_date" 0.0;
+					inherit: "default" 0.0;
+					text{
+						text: "";
+						style: "textblock_digit_style";
+						text_class: "idle_font";
+						align: 0.5 0.5;
+						min: 1 1;
+					}
+				}
+				description{
+					state: "hide_time" 0.0;
+					inherit: "default" 0.0;
+					visible: 0;
+				}
+			}
+			part{
+				name: "default_text_date";
+				type: TEXT;
+				effect: SHADOW BOTTOM;
+				scale: 1;
+				clip_to: "clipper";
+				description{
+					state: "default" 0.0;
+					color: 255 255 255 255;
+					color2: 255 128 0 255;
+					rel1 { relative: 0.0 1.0; to: "textblock_time"; }
+					rel2 { relative: 1.0 1.0; to: "textblock_time"; }
+					align: 0.5 0.0;
+					text{
+						text: "";
+						font: "Tizen:style=Bold";
+						text_class: "tizen";
+						min: 0 1;
+						size: 34;
+						align: 0.5 0.5;
+					}
+					visible: 0;
+				}
+				description{
+					state: "text_date_1" 0.0;
+					inherit: "default" 0.0;
+					color: 0 0 0 255;
+					visible: 1;
+				}
+				description{
+					state: "text_date_2" 0.0;
+					inherit: "default" 0.0;
+					color: 206 255 0 255;
+					visible: 1;
+				}
+				description{
+					state: "text_date_3" 0.0;
+					inherit: "default" 0.0;
+					color: 255 101 25 255;
+					visible: 1;
+				}
+				description{
+					state: "text_date_4" 0.0;
+					inherit: "default" 0.0;
+					color: 188 255 251 255;
+					visible: 1;
+				}
+				description{
+					state: "text_date_5" 0.0;
+					inherit: "default" 0.0;
+					color: 240 56 128 255;
+					visible: 1;
+				}
+				description{
+					state: "text_date_6" 0.0;
+					inherit: "default" 0.0;
+					color: 255 234 0 255;
+					visible: 1;
+				}
+				description{
+					state: "text_date_7" 0.0;
+					inherit: "default" 0.0;
+					color: 103 62 39 255;
+					visible: 1;
+				}
+				description{
+					state: "text_date_8" 0.0;
+					inherit: "default" 0.0;
+					color: 255 255 255 255;
+					visible: 1;
+				}
+				description{
+					state: "text_date_9" 0.0;
+					inherit: "default" 0.0;
+					color: 4 40 96 255;
+					visible: 1;
+				}
+				description{
+					state: "text_date_10" 0.0;
+					inherit: "default" 0.0;
+					color: 242 220 197 255;
+					visible: 1;
+				}
+				description{
+					state: "text_date_11" 0.0;
+					inherit: "default" 0.0;
+					color: 246 46 0 255;
+					visible: 1;
+				}
+				description{
+					state: "text_date_12" 0.0;
+					inherit: "default" 0.0;
+					color: 89 89 89 255;
+					visible: 1;
+				}
+			}
+		} //parts end
+		programs{
+			program{
+				name: "show_effect";
+				signal: "show_effect";
+				source: "";
+				action: STATE_SET "default" 0.0;
+				target: "clipper";
+			}
+			program{
+				name: "hide_effect";
+				signal: "hide_effect";
+				source: "";
+				action: STATE_SET "hide" 0.0;
+				target: "clipper";
+			}
+			program{
+				name: "change,no_date";
+				signal: "change,no_date";
+				source: "source_textblock_time";
+				action: STATE_SET "no_date" 0.0;
+				target: "textblock_time";
+			}
+			program{
+				name: "change,default";
+				signal: "change,default";
+				source: "source_textblock_time";
+				action: STATE_SET "default" 0.0;
+				target: "textblock_time";
+			}
+			PROGRAM_SHOW_DATE(default, 1);
+			PROGRAM_SHOW_DATE(default, 2);
+			PROGRAM_SHOW_DATE(default, 3);
+			PROGRAM_SHOW_DATE(default, 4);
+			PROGRAM_SHOW_DATE(default, 5);
+			PROGRAM_SHOW_DATE(default, 6);
+			PROGRAM_SHOW_DATE(default, 7);
+			PROGRAM_SHOW_DATE(default, 8);
+			PROGRAM_SHOW_DATE(default, 9);
+			PROGRAM_SHOW_DATE(default, 10);
+			PROGRAM_SHOW_DATE(default, 11);
+			PROGRAM_SHOW_DATE(default, 12);
+
+			program{
+				name: "change,yes_date";
+				signal: "change,yes_date";
+				source: "source_textblock_time";
+				action: STATE_SET "default" 0.0;
+				target: "textblock_time";
+			}
+			program{
+				name: "hide,default_time";
+				signal: "hide,default_time";
+				source: "source_default_time";
+				action: STATE_SET "hide_default_time" 0.0;
+				target: "textblock_time";
+			}
+			program{
+				name: "hide,text_date";
+				signal: "hide,text_date";
+				source: "source_text_date";
+				action: STATE_SET "default" 0.0;
+				target: "default_text_date";
+			}
+		} // programs end
+	} //group end
+}

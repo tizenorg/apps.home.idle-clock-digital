@@ -1,0 +1,27 @@
+msgid "IDS_WMGR_MBODY_CLOCK_FONT_COLOUR"
+msgstr "Saat yazı tipi rengi"
+
+msgid "IDS_CLOCK_MBODY_CLOCK_FONT"
+msgstr "Saat yazı tipi"
+
+msgid "IDS_WMGR_MBODY_SHOW_BATTERY_ICON"
+msgstr "Pil simgesini göster"
+
+msgid "IDS_WMGR_MBODY_SHOW_BLUETOOTH_ICON"
+msgstr "Bluetooth simgesini göstr"
+
+msgid "IDS_WMGR_OPT_DEFAULT_M_FONT"
+msgstr "Varsayılan"
+
+msgid "IDS_WMGR_OPT_DYNAMIC_M_FONT"
+msgstr "Dinamik"
+
+msgid "IDS_WMGR_OPT_LIGHT_M_FONT"
+msgstr "Işık"
+
+msgid "IDS_WMGR_HEADER_DIGITAL_CLOCK"
+msgstr "Dijital Saat"
+
+msgid "IDS_WMGR_MBODY_SHOW_DATE"
+msgstr "Tarihi göster"
+
