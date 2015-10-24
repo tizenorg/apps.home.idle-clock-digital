@@ -2,11 +2,11 @@
     <define>
         <domain name="org.tizen.idle-clock-digital"/>
 	<request>
-		<smack request="org.tizen.setting" type="rwx"/>
-		<smack request="org.tizen.setting::default-resources" type="rx"/>
-		<smack request="org.tizen.add-viewer" type="rx"/>
-		<smack request="org.tizen.message" type="rw"/>
-		<smack request="org.tizen.setting::system" type="rl"/>
+		<smack request="com.samsung.setting" type="rwx"/>
+		<smack request="com.samsung.setting::default-resources" type="rx"/>
+		<smack request="com.samsung.add-viewer" type="rx"/>
+		<smack request="com.samsung.message" type="rw"/>
+		<smack request="com.samsung.setting::system" type="rl"/>
 	</request>
 	<permit>
 		<smack permit="aul" type="rx"/>

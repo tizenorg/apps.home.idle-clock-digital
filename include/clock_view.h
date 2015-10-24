@@ -35,4 +35,6 @@ void clock_view_destroy_view_main(void *data);
 void clock_view_show_clock(void *data);
 void clock_view_hide_clock(void *data);
 
+
+
 #endif /* __CLOCK_VIEW_H__ */

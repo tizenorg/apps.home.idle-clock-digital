@@ -22,6 +22,10 @@
 #include <glib.h>
 #include <dd-display.h>
 #include <device/display.h>
+#include <tizen.h>
+#include <watch_app.h>
+#include <watch_app_efl.h>
+
 
 #include "log.h"
 #include "window.h"
@@ -59,8 +63,8 @@ static int live_flush_to_file(Evas *e, const char *filename, int w, int h);
 static int _flush_data_to_file(Evas *e, char *data, const char *filename, int w, int h);
 static void _update_clock_to_offscreen(void *data, int w, int h);
 
-EAPI Evas_Object* elm_widget_top_get(const Evas_Object *obj);
-EAPI Evas_Object* elm_widget_parent_widget_get(const Evas_Object *obj);
+EXPORT_API Evas_Object* elm_widget_top_get(const Evas_Object *obj);
+EXPORT_API Evas_Object* elm_widget_parent_widget_get(const Evas_Object *obj);
 
 
 
@@ -162,7 +166,7 @@ static Evas* _live_create_virtual_canvas(int w, int h)
 		return NULL;
 	}
 
-	ecore_evas_alpha_set(internal_ee, EINA_TRUE);
+	ecore_evas_alpha_set(internal_ee, EINA_FALSE);
 	ecore_evas_manual_render_set(internal_ee, EINA_TRUE);
 
 	internal_e = ecore_evas_get(internal_ee);
@@ -258,7 +262,7 @@ static Eina_Bool _make_dump(void *data, int win_type, int width, int height, cha
 	const void *pixel_data = NULL;
 
 	retv_if(!ad, EINA_FALSE);
-	retv_if(win_type < 0, EINA_FALSE);
+	retv_if(!win_type, EINA_FALSE);
 
 	obj = ad->win;
 
@@ -269,27 +273,6 @@ static Eina_Bool _make_dump(void *data, int win_type, int width, int height, cha
 		// xwin = ecore_x_window_root_get(obj);
 		xwin = _x11_elm_widget_xwin_get(obj);
 		_D("xwin: %x", xwin);
-	} else if(BUFFER_TYPE_MINICONTROL == win_type) {
-		/********************************************************************************/
-		/* workaround..... because of xwin get fail with minicontrol win handle */
-		int x=0;
-		int y=0;
-		int w=0;
-		int h=0;
-		e = evas_object_evas_get(obj);
-		ee = ecore_evas_ecore_evas_get(e);
-		ecore_evas_geometry_get(ee, &x, &y, &w, &h);
-		_D("##### ~~~~~ minicontrol buffer info. x:%d, y:%d, w:%d, h:%d", x, y, w, h);
-		if(w != WIN_SIZE_W || h != WIN_SIZE_H) {
-			_E("##### window size was changed by someone!!!");
-			evas_object_resize(obj, WIN_SIZE_W, WIN_SIZE_H);
-			e = evas_object_evas_get(obj);
-			ee = ecore_evas_ecore_evas_get(e);
-			ecore_evas_geometry_get(ee, &x, &y, &w, &h);
-			_E("##### ##### ~~~~~ minicontrol buffer info. x:%d, y:%d, w:%d, h:%d", x, y, w, h);
-		}
-		pixel_data = ecore_evas_buffer_pixels_get(ee);
-		/********************************************************************************/
 	}
 
 	_flush_data_to_file(e, (char *)pixel_data, DUMP_FILE_PATH_MINICONTROL, 384, WIN_SIZE_H);
@@ -305,24 +288,20 @@ static bool _create_window(void *data, int mode)
 	appdata *ad = data;
 	retv_if(!ad, false);
 
-	/* initialize variables */
-	ad->win_w = 0;
-	ad->win_h = 0;
-
 	/* create main window */
 	if(ad->win == NULL) {
 		if(mode == BUFFER_TYPE_OFFSCREEN) {
 			ad->win_type = BUFFER_TYPE_OFFSCREEN;
-			_update_clock_to_offscreen(data, WIN_SIZE_W, WIN_SIZE_H);
+			_update_clock_to_offscreen(data, ad->win_w, ad->win_h);
 
 			return true;
 		}
 		win = window_create(PACKAGE);
 		retv_if(!win, -1);
-		evas_object_resize(win, WIN_SIZE_W, WIN_SIZE_H);
+		evas_object_resize(win, ad->win_w, ad->win_h);
 		evas_object_move(win, 0, 0);
 		ad->win = win;
-		ad->win_type = BUFFER_TYPE_MINICONTROL;
+		ad->win_type = BUFFER_TYPE_WINDOW;
 		clock_view_create_layout(ad);
 		_D("create window");
 	}
@@ -331,9 +310,35 @@ static bool _create_window(void *data, int mode)
 
 
 
-static bool _idle_clock_digital_create(void *data)
+static bool _idle_clock_digital_create(int width, int height, void *data)
 {
 	_D("%s", __func__);
+
+	appdata *ad = data;
+
+	app_event_handler_h handlers[5] = {NULL, };
+	watch_time_h watch_time = NULL;
+
+	// Register callbacks for each system event
+	if (watch_app_add_event_handler(&handlers[APP_EVENT_LANGUAGE_CHANGED], APP_EVENT_LANGUAGE_CHANGED, NULL, NULL) != APP_ERROR_NONE) {
+		 _E("watch_app_add_event_handler () is failed");
+	}
+	if (watch_app_add_event_handler(&handlers[APP_EVENT_REGION_FORMAT_CHANGED], APP_EVENT_REGION_FORMAT_CHANGED, NULL, NULL) != APP_ERROR_NONE) {
+		 _E("watch_app_add_event_handler () is failed");
+	}
+	if (watch_app_add_event_handler(&handlers[APP_EVENT_LOW_BATTERY], APP_EVENT_LOW_BATTERY, NULL, NULL) != APP_ERROR_NONE) {
+		 _E("watch_app_add_event_handler () is failed");
+	}
+	if (watch_app_add_event_handler(&handlers[APP_EVENT_LOW_MEMORY], APP_EVENT_LOW_MEMORY, NULL, NULL) != APP_ERROR_NONE) {
+		 _E("watch_app_add_event_handler () is failed");
+	}
+	if (watch_app_add_event_handler(&handlers[APP_EVENT_DEVICE_ORIENTATION_CHANGED], APP_EVENT_DEVICE_ORIENTATION_CHANGED, NULL, NULL) != APP_ERROR_NONE) {
+		 _E("watch_app_add_event_handler () is failed");
+	}
+
+	ad->win_w = width;
+	ad->win_h = height;
+
 	return true;
 }
 
@@ -551,7 +556,7 @@ static Eina_Bool _sync_timer_cb(void *data)
 
 	if(drawing_state == 0) {
 		_remove_preview_resource(data);
-		_create_window(data, BUFFER_TYPE_MINICONTROL);
+		_create_window(data, BUFFER_TYPE_WINDOW);
 		sync_timer = NULL;
 		return ECORE_CALLBACK_CANCEL;
 	}
@@ -584,7 +589,7 @@ static void _idle_clock_digital_app_control(app_control_h app_control, void *dat
 				clock_view_update_view(ad);
 				free(result_data);
 
-				if (BUFFER_TYPE_MINICONTROL == ad->win_type && ad->win) {
+				if (BUFFER_TYPE_WINDOW == ad->win_type && ad->win) {
 					display_change_state(LCD_NORMAL);
 				} else {
 					_D("app will be closed");
@@ -610,7 +615,7 @@ static void _idle_clock_digital_app_control(app_control_h app_control, void *dat
 			} else {
 				/* New case: offscreen capture -> operation/main */
 				_remove_preview_resource(data);
-				_create_window(data, BUFFER_TYPE_MINICONTROL); /* create window if not mini app setting called */
+				_create_window(data, BUFFER_TYPE_WINDOW); /* create window if not mini app setting called */
 			}
 		}
 		else if(strcmp(op, "http://tizen.org/appcontrol/operation/clock/capture") == 0) {
@@ -657,28 +662,48 @@ static void _idle_clock_digital_app_control(app_control_h app_control, void *dat
 
 
 
+void app_time_tick(watch_time_h watch_time, void* user_data)
+{
+	appdata *ad = user_data;
+
+}
+
+void app_ambient_tick(watch_time_h watch_time, void* user_data)
+{
+	appdata *ad = user_data;
+
+}
+
+void app_ambient_changed(bool ambient_mode, void* user_data)
+{
+	if (ambient_mode) {
+		// Prepare to enter the ambient mode
+	} else {
+		// Prepare to exit the ambient mode
+	}
+}
+
+
+
 int main(int argc, char *argv[])
 {
 	appdata ad;
 
-	ui_app_lifecycle_callback_s lifecycle_callback = {0, };
-	app_event_handler_h event_handlers[5] = {NULL, };
-
-	memset(&ad, 0x0, sizeof(appdata));
+	watch_app_lifecycle_callback_s lifecycle_callback = {0, };
 
 	lifecycle_callback.create = _idle_clock_digital_create;
 	lifecycle_callback.terminate = _idle_clock_digital_terminate;
 	lifecycle_callback.pause = _idle_clock_digital_pause;
 	lifecycle_callback.resume = _idle_clock_digital_resume;
 	lifecycle_callback.app_control = _idle_clock_digital_app_control;
+	lifecycle_callback.time_tick = app_time_tick;
+	lifecycle_callback.ambient_tick = app_ambient_tick;
+	lifecycle_callback.ambient_changed = app_ambient_changed;
 
-	ui_app_add_event_handler(&event_handlers[APP_EVENT_LOW_BATTERY], APP_EVENT_LOW_BATTERY, NULL, NULL);
-	ui_app_add_event_handler(&event_handlers[APP_EVENT_LOW_MEMORY], APP_EVENT_LOW_MEMORY, NULL, NULL);
-	ui_app_add_event_handler(&event_handlers[APP_EVENT_DEVICE_ORIENTATION_CHANGED], APP_EVENT_DEVICE_ORIENTATION_CHANGED, NULL, NULL);
-	ui_app_add_event_handler(&event_handlers[APP_EVENT_LANGUAGE_CHANGED], APP_EVENT_LANGUAGE_CHANGED, NULL, NULL);
-	ui_app_add_event_handler(&event_handlers[APP_EVENT_REGION_FORMAT_CHANGED], APP_EVENT_REGION_FORMAT_CHANGED, NULL, NULL);
 
-	return ui_app_main(argc, argv, &lifecycle_callback, &ad);
+	memset(&ad, 0x0, sizeof(appdata));
+
+	return watch_app_main(argc, argv, &lifecycle_callback, &ad);
 }
 
 

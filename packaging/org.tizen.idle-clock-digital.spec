@@ -5,9 +5,16 @@ Release:	0
 Group:	TO_BE/FILLED_IN
 License:	Apache-2.0
 Source0:	%{name}-%{version}.tar.gz
+
+%if "%{?tizen_profile_name}" == "tv"
+ExcludeArch: %{arm} %ix86 x86_64
+%endif
+
 BuildRequires:  pkgconfig(appcore-efl)
+BuildRequires:  pkgconfig(capi-appfw-watch-application)
 BuildRequires:  pkgconfig(capi-appfw-application)
 BuildRequires:  pkgconfig(capi-appfw-preference)
+BuildRequires:  pkgconfig(capi-base-utils-i18n)
 BuildRequires:  pkgconfig(capi-system-system-settings)
 BuildRequires:  pkgconfig(capi-system-device)
 BuildRequires:  pkgconfig(dlog)
@@ -15,7 +22,6 @@ BuildRequires:  pkgconfig(deviced)
 BuildRequires:  pkgconfig(ecore-x)
 BuildRequires:  pkgconfig(elementary)
 BuildRequires:  pkgconfig(libxml-2.0)
-BuildRequires:  pkgconfig(minicontrol-provider)
 BuildRequires:  pkgconfig(utilX)
 
 BuildRequires:  cmake
@@ -37,7 +43,7 @@ idle-clock-digital.
 %setup -q
 
 %define PREFIX /usr/apps/org.tizen.idle-clock-digital
-%define DATADIR /usr/apps/%{name}/data
+%define DATADIR /opt/usr/apps/%{name}/data
 
 %build
 %if 0%{?tizen_build_binary_release_type_eng}

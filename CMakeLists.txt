@@ -43,6 +43,8 @@ pkg_check_modules(pkgs REQUIRED
 	capi-appfw-preference
 	capi-system-system-settings
 	capi-system-device
+	capi-base-utils-i18n
+	capi-appfw-watch-application
 	appcore-efl
 	ecore-x
 	ecore
@@ -52,7 +54,6 @@ pkg_check_modules(pkgs REQUIRED
 	utilX
 	deviced
 	dlog
-	minicontrol-provider
 	libxml-2.0
 )
 

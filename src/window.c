@@ -17,8 +17,10 @@
  */
 
 #include <Ecore.h>
-#include <Ecore_X.h>
-#include <minicontrol-provider.h>
+#include <Elementary.h>
+#include <watch_app.h>
+#include <watch_app_efl.h>
+
 
 #include "app_data.h"
 #include "log.h"
@@ -28,16 +30,28 @@
 
 Evas_Object *window_create(const char *name)
 {
-	Evas_Object *eo = NULL;
-	double scale = elm_config_scale_get();
-	//eo = elm_win_add(NULL, name, ELM_WIN_BASIC);
-	eo = minicontrol_win_add(name);
+	Evas_Object *win = NULL;
+	int ret = 0;
 
-	if (eo) {
-		//elm_win_alpha_set(eo, EINA_FALSE);
-		elm_win_alpha_set(eo, EINA_TRUE);
-		evas_object_resize(eo, WIN_SIZE_W*scale, WIN_SIZE_H*scale);
+	/* Window */
+
+	_D("WATCH APP CREATE");
+	ret = watch_app_get_elm_win(&win);
+	if (ret != APP_ERROR_NONE) {
+		_E("failed to get window(%d)", ret);
+		return NULL;
 	}
-	return eo;
+
+	elm_win_title_set(win, "idle-clock_digital");
+	elm_win_borderless_set(win, EINA_TRUE);
+	elm_win_alpha_set(win, EINA_FALSE);
+	elm_win_indicator_opacity_set(win, ELM_WIN_INDICATOR_TRANSPARENT);
+	elm_win_role_set(win, "no-effect");
+
+	/* Show window after base gui is set up */
+	evas_object_show(win);
+
+	return win;
+
 }
 

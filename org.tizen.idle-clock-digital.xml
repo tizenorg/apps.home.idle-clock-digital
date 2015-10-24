@@ -8,9 +8,7 @@
 		<privilege>http://tizen.org/privilege/power</privilege>
 		<privilege>http://tizen.org/privilege/application.launch</privilege>
 	</privileges>
-	<ui-application appid="org.tizen.idle-clock-digital" exec="/usr/apps/org.tizen.idle-clock-digital/bin/idle-clock-digital" nodisplay="true" multiple="false" type="capp" taskmanage="false">
-		<category name="org.tizen.wmanager.WATCH_CLOCK"></category>
-		<metadata key="clocktype" value="function"></metadata>
+	<watch-application appid="org.tizen.idle-clock-digital" exec="/usr/apps/org.tizen.idle-clock-digital/bin/idle-clock-digital" ambient-support="true">
 		<icon>org.tizen.idle-clock-digital.png</icon>
 		<label>Digital clock</label>
 		<label xml:lang="ar-ae">ساعة رقمية</label>
@@ -99,5 +97,5 @@
 		<label xml:lang="zh-hk">數字時鐘</label>
 		<label xml:lang="zh-tw">數位時鐘</label>
 		<label xml:lang="mn-mn">Дижитал цаг</label>
-	</ui-application>
+	</watch-application>
 </manifest>

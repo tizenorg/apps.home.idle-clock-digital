@@ -14,11 +14,12 @@ org.tizen.idle-clock-digital deviced::display rwx---
 org.tizen.idle-clock-digital aul::launch rwx---
 root org.tizen.idle-clock-digital rw----
 _default_ org.tizen.idle-clock-digital rw----
-org.tizen.idle-clock-digital org.tizen.setting:system r----l
-org.tizen.idle-clock-digital org.tizen.message rw----
-org.tizen.idle-clock-digital org.tizen.add-viewer r-x---
-org.tizen.idle-clock-digital org.tizen.setting:default-resources r-x---
-org.tizen.idle-clock-digital org.tizen.setting rwx---
+org.tizen.idle-clock-digital com.samsung.setting:system r----l
+org.tizen.idle-clock-digital com.samsung.message rw----
+org.tizen.idle-clock-digital com.samsung.add-viewer r-x---
+org.tizen.idle-clock-digital com.samsung.setting:default-resources r-x---
+org.tizen.idle-clock-digital com.samsung.setting rwx---
+org.tzein.idle-clock-digital tizen::vconf::display rw----
 system org.tizen.idle-clock-digital -w----
 dbus org.tizen.idle-clock-digital rwx---
 aul org.tizen.idle-clock-digital r-x---

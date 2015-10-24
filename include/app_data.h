@@ -25,12 +25,7 @@
 #include <app.h>
 
 /* for time variables */
-#include <unicode/utypes.h>
-#include <unicode/putil.h>
-#include <unicode/uiter.h>
-#include <unicode/udat.h>
-#include <unicode/udatpg.h>
-#include <unicode/ustring.h>
+#include <utils_i18n.h>
 
 typedef struct __appdata
 {
@@ -48,14 +43,14 @@ typedef struct __appdata
 
 	/* for time display */
 	Eina_Bool is_pre;
-	bool timeformat;
+	int timeformat;
 	char *timeregion_format;
 	char *timezone_id;
-	UDateFormat *formatter_time;
-	UDateFormat *formatter_ampm;
-	UDateFormat *formatter_time_24;
-	UDateFormat *formatter_date;
-	UDateTimePatternGenerator *generator;
+	i18n_udate_format_h formatter_time;
+	i18n_udate_format_h formatter_ampm;
+	i18n_udate_format_h formatter_time_24;
+	i18n_udate_format_h formatter_date;
+	i18n_udatepg_h generator;
 
 	Eina_Bool is_show;
 } appdata;
